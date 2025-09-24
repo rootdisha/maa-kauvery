@@ -31,6 +31,8 @@ export default function HeroSection() {
         <h1 className="text-9xl font-[hng] text-purple-100/50 leading-tight tracking-wide">
             Build the Family You Dream Of
           </h1>
+
+          <h3 className='text-purple-100/50 leading-tight tracking-wide'>Care to Cradle, with you always.</h3>
           
       </div>
     </div>

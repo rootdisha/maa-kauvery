@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import logo from "../Images/logo.png";
+import { maakauveryInsta, maakauveryFB, maakauveryYT } from "../utils/constants";
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
         >
           <img src={logo} alt="Maa Kauvery Logo" className="w-32 mb-4" />
           <p className="text-gray-600">
-            Providing compassionate and world-class fertility care, helping families grow with love.
+            Care to Cradle, with you always.
           </p>
         </motion.div>
 
@@ -49,25 +50,24 @@ export default function Footer() {
           viewport={{ once: true }}
           className="text-center sm:text-left"
         >
-          <h4 className="text-lg font-semibold text-purple-800 mb-3">Quick Links</h4>
+          {/* <h4 className="text-lg font-semibold text-purple-800 mb-3">Quick Links</h4>
           <ul className="flex flex-col gap-2 mb-4">
             <li className="hover:text-pink-600 cursor-pointer transition">Home</li>
             <li className="hover:text-pink-600 cursor-pointer transition">About</li>
             <li className="hover:text-pink-600 cursor-pointer transition">Services</li>
             <li className="hover:text-pink-600 cursor-pointer transition">Contact</li>
-            <li className="hover:text-pink-600 cursor-pointer transition">Fertility Tips</li>
-          </ul>
+          </ul> */}
 
           <h4 className="text-lg font-semibold text-purple-800 mb-2">Follow Us</h4>
           <div className="flex justify-center sm:justify-start gap-4">
-            <a href="#" className="hover:text-pink-600 transition">
+            <a href={maakauveryFB} className="hover:text-pink-600 transition">
               <Facebook className="w-5 h-5" />
             </a>
-            <a href="#" className="hover:text-pink-600 transition">
+            <a href={maakauveryInsta} className="hover:text-pink-600 transition">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="#" className="hover:text-pink-600 transition">
-              <Twitter className="w-5 h-5" />
+            <a href={maakauveryYT} className="hover:text-pink-600 transition">
+              <Youtube className="w-5 h-5" />
             </a>
           </div>
         </motion.div>

@@ -1,104 +1,177 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Calendar } from "lucide-react";
-import momBaby from "../Images/mother-with-baby-studio-portrait-concept.png"; 
+import IVFImage from "../Images/charlesdeluvio-nENtqUAiNm8-unsplash.jpg"; 
 import AppointmentForm from "../Components/AppointmentForm";
 
-export default function IVFSection() {
+// Full width background image
+export default function IVFSectionBackgroundImage() {
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
 
+  return (
+    <section className="relative w-full overflow-hidden">
+  {/* Full-width background container */}
+  <div className="relative w-full">
+    {/* Background Image with Overlay */}
+    <div className="absolute inset-0">
+      <img
+        src={IVFImage}
+        alt="Mother and Baby"
+        className="w-full h-full object-cover opacity-20"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r via-[#876dad]/40 from-pink-900/50 to-transparent"></div>
+    </div>
+
+    {/* Content Over Background */}
+    <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 text-white">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="max-w-2xl"
+      >
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          Why opt for In-Vitro Fertilization (IVF)?
+        </h2>
+        
+        <p className="text-lg md:text-xl mb-8 leading-relaxed text-white/90">
+          In-Vitro fertilization (IVF) is the most effective fertility treatment available today.
+          IVF treatments offer the highest success rates and quickest time-to-pregnancy.
+        </p>
+
+        <ul className="space-y-3 mb-10">
+          {[
+            "Low sperm count",
+            "Poor egg quality",
+            "Uterus or Fallopian tube issues",
+            "Ovulation problems",
+            "Unidentified infertility issues",
+          ].map((item, idx) => (
+            <motion.li
+              key={idx}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 text-lg"
+            >
+              <div className="w-2 h-2 bg-[#876dad] rounded-full flex-shrink-0"></div>
+              <span>{item}</span>
+            </motion.li>
+          ))}
+        </ul>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a
+            href="tel:+914465556666"
+            className="inline-flex items-center justify-center gap-2 bg-white text-pink-600 
+            hover:bg-pink-50 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all font-semibold"
+          >
+            <Phone className="w-5 h-5" /> +91 44 6555 6666
+          </a>
+          <button 
+            className="inline-flex items-center justify-center gap-2 
+              bg-pink-600 text-white px-8 py-4 rounded-full 
+              shadow-lg hover:shadow-xl hover:bg-pink-700 transition-all font-semibold"
+            onClick={() => setShowAppointmentForm(true)} 
+          >
+            <Calendar className="w-5 h-5" /> Book An Appointment
+          </button>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+
+  <AppointmentForm 
+    isOpen={showAppointmentForm} 
+    onClose={() => setShowAppointmentForm(false)} 
+  />
+</section>
+  );
+}
+
+// image on left, text on right
+function IVFSectionImageOnSide() {
+  const [showAppointmentForm, setShowAppointmentForm] = useState(false);
 
   return (
     <section className="relative bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 py-16 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-
-        {/* Image side */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
-          viewport={{ once: true }}
-          className="flex-shrink-0 w-full lg:w-1/2 flex justify-center"
-        >
-          <img
-            src={momBaby}
-            alt="Mother and Baby"
-            className="w-[350px] md:w-[420px] lg:w-[480px] object-contain drop-shadow-xl"
-          />
-        </motion.div>
-
-        {/* Text side */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
-          viewport={{ once: true }}
-          className="lg:w-1/2 text-center lg:text-left"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">
-            Why opt for In-Vitro Fertilization (IVF)?
-          </h2>
-          <p className="text-gray-700 mb-6 leading-relaxed">
-            In-Vitro fertilization (IVF) is the most effective fertility treatment available today.
-            IVF treatments at NIF offer the highest success rates and quickest time-to-pregnancy in
-            India. We’re one of the top IVF clinics in the world, after all!
-          </p>
-
-          <ul className="text-gray-800 space-y-2 mb-8">
-            {[
-              "Low sperm count",
-              "Poor egg quality",
-              "Uterus or Fallopian tube issues",
-              "Ovulation problems",
-              "Unidentified infertility issues",
-            ].map((item, idx) => (
-              <motion.li
-                key={idx}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-center gap-2"
-              >
-                <span className="h-2 w-2 bg-pink-500 rounded-full"></span>
-                {item}
-              </motion.li>
-            ))}
-          </ul>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a
-              href="tel:+914465556666"
-              className="inline-flex items-center gap-2 bg-white text-pink-600 
-              hover:bg-pink-700 hover:text-white hover:border-pink-50 
-              px-6 py-3 rounded-full shadow hover:shadow-md transition"
-            >
-              <Phone className="w-5 h-5" /> +91 44 6555 6666
-            </a>
-            <button 
-              className="inline-flex items-center gap-2 
-                bg-pink-600 text-white px-6 py-3 rounded-full 
-                shadow hover:bg-pink-700 transition"
-                onClick={() => setShowAppointmentForm(true)} 
-            >
-
-              <Calendar className="w-5 h-5" /> Book An Appointment
-            </button>
-            {showAppointmentForm && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-                <div className="relative bg-white rounded-2xl p-8 max-w-lg w-full mx-4">
-                  <button
-                    onClick={() => setShowAppointmentForm(false)}
-                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl"
-                  >
-                    &times;
-                  </button>
-                </div>
-              </div>
-            )}
+      <div className="max-w-7xl mx-auto">
+        {/* Full-width background container with overlay */}
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0">
+            <img
+              src={IVFImage}
+              alt="Mother and Baby"
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-pink-900/70 to-transparent"></div>
           </div>
-        </motion.div>
+
+          {/* Content Over Background */}
+          <div className="relative z-10 px-8 md:px-16 py-12 md:py-20 text-white">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="max-w-2xl"
+            >
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                Why opt for In-Vitro Fertilization (IVF)?
+              </h2>
+              
+              <p className="text-lg md:text-xl mb-8 leading-relaxed text-white/90">
+                In-Vitro fertilization (IVF) is the most effective fertility treatment available today.
+                IVF treatments offer the highest success rates and quickest time-to-pregnancy.
+              </p>
+
+              <ul className="space-y-3 mb-10">
+                {[
+                  "Low sperm count",
+                  "Poor egg quality",
+                  "Uterus or Fallopian tube issues",
+                  "Ovulation problems",
+                  "Unidentified infertility issues",
+                ].map((item, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-3 text-lg"
+                  >
+                    <div className="w-2 h-2 bg-pink-400 rounded-full flex-shrink-0"></div>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="tel:+914465556666"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-pink-600 
+                  hover:bg-pink-50 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all font-semibold"
+                >
+                  <Phone className="w-5 h-5" /> +91 44 6555 6666
+                </a>
+                <button 
+                  className="inline-flex items-center justify-center gap-2 
+                    bg-pink-600 text-white px-8 py-4 rounded-full 
+                    shadow-lg hover:shadow-xl hover:bg-pink-700 transition-all font-semibold"
+                  onClick={() => setShowAppointmentForm(true)} 
+                >
+                  <Calendar className="w-5 h-5" /> Book An Appointment
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
+
       <AppointmentForm 
         isOpen={showAppointmentForm} 
         onClose={() => setShowAppointmentForm(false)} 
