@@ -18,7 +18,7 @@ export default function Navbar() {
       submenu: [
         { label: "Overview", href: "Overview" },
         { label: "Leadership", href: "LeadershipSection" },
-        { label: "Our Doctors", href: "" },
+        { label: "Our Doctors", href: "/doctors" },
         { label: "Success Stories", href: "#" },
       ],
     },

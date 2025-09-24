@@ -42,6 +42,7 @@ export default function Infrastructure() {
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-center"
         >
           Technology & Infrastructure
@@ -49,7 +50,7 @@ export default function Infrastructure() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center mt-4 text-lg max-w-3xl mx-auto"
         >
           At Kauvery Hospital, our modern facilities and advanced equipment are dedicated to ensuring you receive the highest quality care.
@@ -60,9 +61,9 @@ export default function Infrastructure() {
         {/* Main Feature */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-r from-purple-100 to-gray-100 rounded-2xl p-8 mb-12 shadow-lg"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-8 mb-12 shadow-lg"
         >
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
             {features[0].title}
@@ -83,9 +84,8 @@ export default function Infrastructure() {
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 + (idx * 0.1) }}
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="bg-purple-100 w-16 h-16 rounded-xl flex items-center justify-center mb-4">
