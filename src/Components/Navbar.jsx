@@ -5,11 +5,23 @@ import Logo from "../Images/logo.png";
 import { FaWhatsapp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
+const CONTACT_NUMBER = "+91 44 6555 6666"
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);       // mobile menu
   const [mobileDropdown, setMobileDropdown] = useState(null);
 
   const navLinks = [
+    
+    {
+      label: "About",
+      submenu: [
+        { label: "Overview", href: "Overview" },
+        { label: "Leadership", href: "LeadershipSection" },
+        { label: "Our Doctors", href: "" },
+        { label: "Success Stories", href: "#" },
+      ],
+    },
     {
       label: "Treatments",
       submenu: [
@@ -22,14 +34,6 @@ export default function Navbar() {
           ],
         },
         { label: "Fertility Testing", href: "#" },
-      ],
-    },
-    {
-      label: "About",
-      submenu: [
-        { label: "OverView", href: "Overview" },
-        { label: "Our Doctors", href: "LeadershipSection" },
-        { label: "Success Stories", href: "#" },
       ],
     },
     { label: "Blog", href: "#" },
@@ -48,15 +52,15 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
-          <a href="tel:+919999999999" className="flex items-center gap-2 hover:text-[#7a63a8]">
+          <a href={"tel:"+CONTACT_NUMBER.replace(/\s/g, '')} className="flex items-center gap-2 hover:text-[#7a63a8]">
             <FaPhoneAlt className="text-lg text-blue-300" />
-            <span className="font-medium">+91 99999 99999</span>
+            <span className="font-medium">{CONTACT_NUMBER}</span>
           </a>
 
-          <a href="tel:+919999999999" className="flex items-center gap-2 ">
+          {/* <a href="tel:+919999999999" className="flex items-center gap-2 ">
             <FaWhatsapp className="text-lg text-[#25d366]" />
-            <span className="font-medium ">+91 99999 99999</span>
-          </a>
+            <span className="font-medium ">{CONTACT_NUMBER}</span>
+          </a> */}
           <button className="bg-[#9781bc] text-white px-5 py-2 rounded-md font-semibold shadow hover:bg-[#876dad]">
             BOOK NOW
           </button>

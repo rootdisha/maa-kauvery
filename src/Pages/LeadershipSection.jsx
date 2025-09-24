@@ -58,6 +58,19 @@ const leaders = [
     long:
       "Selvaraju manages group-wide procurement strategies, ensuring cost-effective and high-quality medical supplies and infrastructure development.",
   },
+  {
+    name: "Dr. S. Vijayabaskaran",
+    title: "Executive Director, Kauvery Hospitals (Bangalore and Hosur)",
+    img: "/DocterImg/07_Vijayabaskaran.png",
+    short:
+      "An accomplished healthcare leader recognized for excellence in management and research.",
+    long:
+      "Dr. S. Vijayabaskaran serves as the Executive Director of the Bangalore and Hosur units within the Kauvery Group of Hospitals. His extensive qualifications and accomplishments underscore his role in this esteemed healthcare organisation. Dr. Vijayabaskaran excels in various areas, like Project Management, Turnaround Specialist/Mergers & Acquisitions, Business Development, and Stakeholder Management.\
+      <ul> <li> Best Integrated Farming System Research Scientist for the year 2013 at the National Level (ICAR)\
+      <li> Best Extension Scientist for the year 2008 at the state level\
+      <li> University rank holder in postgraduate studies</ul>\
+      ASPEE fellowship holder for postgraduate studies",
+  },
 ];
 
 /* ----------------------------------------------------
