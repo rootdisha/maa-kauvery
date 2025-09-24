@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom'
 import Home from "../Pages/Home"
 import AppointmentForm from '../Components/AppointmentForm'
 import AboutOverview from '../Pages/Overview'
-// import DoctorsPage from "../Components/DoctorsPage" 
 import LeadershipSection from "../Pages/LeadershipSection"
 import ARTServices from '../Pages/FertilityServices/ARTServices'
 import AdvancedProcedures from '../Pages/FertilityServices/AdvancedProcedures'
@@ -21,7 +20,7 @@ const AllRouters = () => {
       </div>
         <Routes>
             <Route path='/' element={<Home />} />
-             <Route path="/branch/:id" element={<DoctorsPage />} />
+            <Route path="/branch/:id" element={<DoctorsPage />} />
             <Route path='/Overview' element={<AboutOverview />} />
             <Route path='/LeadershipSection' element={<LeadershipSection />} />
             <Route path='/fertility/about' element={<AboutFertility />} />

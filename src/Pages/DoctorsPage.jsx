@@ -406,14 +406,24 @@ export default function DoctorsPage() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <button className="flex-1 bg-[#9781bc] text-white py-3 rounded-lg font-semibold hover:bg-[#876dad] transition-colors flex items-center justify-center gap-2">
+                  <button className="flex-1 bg-[#9781bc] text-white 
+                    py-3 rounded-lg font-semibold 
+                    hover:bg-pink-700 hover:text-white hover:border-pink-50 
+                    transition-colors flex items-center justify-center 
+                    gap-2">
                     <Calendar className="w-5 h-5" />
                     Book Appointment
                   </button>
-                  <button className="flex-1 bg-white border-2 border-[#9781bc] text-[#9781bc] py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center justify-center gap-2">
+                  <a className="flex-1 bg-white border-2 border-[#9781bc] 
+                    text-[#9781bc] py-3 rounded-lg font-semibold 
+                    hover:bg-pink-700 hover:text-white hover:border-pink-50 
+                    transition-colors flex items-center 
+                    justify-center gap-2"
+                    href="tel:+914465556666"
+                  >
                     <Phone className="w-5 h-5" />
                     Contact Doctor
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>

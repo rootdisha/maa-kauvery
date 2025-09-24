@@ -4,12 +4,14 @@ import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
 import Logo from "../Images/logo.png";
 import { FaWhatsapp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import AppointmentForm from "../Components/AppointmentForm"
 
 const CONTACT_NUMBER = "+91 44 6555 6666"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);       // mobile menu
   const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [showAppointmentForm, setShowAppointmentForm] = useState(false);
 
   const navLinks = [
     
@@ -20,13 +22,12 @@ export default function Navbar() {
         { label: "Leadership", href: "LeadershipSection" },
         { label: "About Maa Kauvery", href: "/fertility/about" },
         { label: "Our Doctors", href: "/doctors" },
-        { label: "Success Stories", href: "#" },
+        { label: "Success Stories", href: "Overview" },
       ],
     },
     {
       label: "Fertility Services", 
-      submenu: [
-        
+      submenu: [       
         { label: "ART Services", href: "/fertility/art-services" },
         { label: "Advanced Procedures", href: "/fertility/advanced-procedures" },
         { label: "Diagnostic Services", href: "/fertility/diagnostic-services" },
@@ -57,6 +58,10 @@ export default function Navbar() {
 
   return (
     <header className="bg-white text-[#9781bc] shadow-md font-[pop]">
+      <AppointmentForm 
+        isOpen={showAppointmentForm} 
+        onClose={() => setShowAppointmentForm(false)} 
+      />
       {/* ---------- Top Bar ---------- */}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3">
         <Link to="/">
@@ -64,14 +69,34 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
-          <a href={"tel:"+CONTACT_NUMBER.replace(/\s/g, '')} className="flex items-center gap-2 hover:text-[#7a63a8]">
-            <FaPhoneAlt className="text-lg text-blue-300" />
-            <span className="font-medium">{CONTACT_NUMBER}</span>
+          <a href={"tel:"+CONTACT_NUMBER.replace(/\s/g, '')} 
+            className="flex items-center gap-2
+            hover:bg-pink-700 hover:text-white hover:border-pink-50 
+            px-5 py-3 rounded-full  hover:shadow-md transition
+             ">
+            <FaPhoneAlt className="text-lg text-pink-700 hover:text-white" />
+            <span className="font-medium text-pink-700 hover:text-white">{CONTACT_NUMBER}</span>
           </a>
 
-          <button className="bg-[#9781bc] text-white px-5 py-2 rounded-md font-semibold shadow hover:bg-[#876dad]">
-            BOOK NOW
+          <button className="bg-pink-700 text-white px-5 py-3 rounded-full 
+            font-semibold shadow 
+            hover:bg-pink-700 hover:text-white hover:border-pink-50 "
+            onClick={() => setShowAppointmentForm(true)} 
+          >
+            Book An Appointment
           </button>
+          {showAppointmentForm && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+              <div className="relative bg-white rounded-2xl p-8 max-w-lg w-full mx-4">
+                <button
+                  onClick={() => setShowAppointmentForm(false)}
+                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl"
+                >
+                  &times;
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         <button

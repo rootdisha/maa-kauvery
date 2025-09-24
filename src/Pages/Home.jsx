@@ -2,8 +2,6 @@ import React from 'react'
 import HeroSection from '../Components/HeroSection'
 import FertilityTreatments from '../Components/FertilityTreatments'
 import StatsSection from '../Components/StatsSection'
-// import StatsSection from '../Components/StatsSection'
-import DoctersCarousel from '../Components/DoctorsCarousel'
 import FertilityServices from '../Components/FertilityServices'
 import AwardSection from '../Components/AwardSection'
 import FAQSection from '../Components/FAQSection'
@@ -15,11 +13,8 @@ const Home = () => {
     <div >
         <HeroSection />
         <FertilityTreatments />
-        {/* <DoctersCarousel /> */}
         <BranchList />
         <StatsSection />
-        {/* <FertilityServices /> */}
-        {/* <AwardSection /> */}
         <IVFSection />
         <FAQSection />
     </div>

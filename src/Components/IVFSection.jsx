@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Calendar } from "lucide-react";
-import momBaby from "../Images/mother-with-baby-studio-portrait-concept.png"; // replace with your image path
+import momBaby from "../Images/mother-with-baby-studio-portrait-concept.png"; 
+import AppointmentForm from "../Components/AppointmentForm";
 
 export default function IVFSection() {
+  const [showAppointmentForm, setShowAppointmentForm] = useState(false);
+
+
   return (
     <section className="relative bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 py-16 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
@@ -65,16 +69,40 @@ export default function IVFSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a
               href="tel:+914465556666"
-              className="inline-flex items-center gap-2 bg-white text-pink-600 px-5 py-3 rounded-full shadow hover:shadow-md transition"
+              className="inline-flex items-center gap-2 bg-white text-pink-600 
+              hover:bg-pink-700 hover:text-white hover:border-pink-50 
+              px-6 py-3 rounded-full shadow hover:shadow-md transition"
             >
               <Phone className="w-5 h-5" /> +91 44 6555 6666
             </a>
-            <button className="inline-flex items-center gap-2 bg-pink-600 text-white px-6 py-3 rounded-full shadow hover:bg-pink-700 transition">
+            <button 
+              className="inline-flex items-center gap-2 
+                bg-pink-600 text-white px-6 py-3 rounded-full 
+                shadow hover:bg-pink-700 transition"
+                onClick={() => setShowAppointmentForm(true)} 
+            >
+
               <Calendar className="w-5 h-5" /> Book An Appointment
             </button>
+            {showAppointmentForm && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                <div className="relative bg-white rounded-2xl p-8 max-w-lg w-full mx-4">
+                  <button
+                    onClick={() => setShowAppointmentForm(false)}
+                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl"
+                  >
+                    &times;
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </motion.div>
       </div>
+      <AppointmentForm 
+        isOpen={showAppointmentForm} 
+        onClose={() => setShowAppointmentForm(false)} 
+      />
     </section>
   );
 }
