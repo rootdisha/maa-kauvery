@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Phone, Calendar } from "lucide-react";
 import IVFImage from "../Images/charlesdeluvio-nENtqUAiNm8-unsplash.jpg"; 
 import AppointmentForm from "../Components/AppointmentForm";
+import { maakauveryPhone } from "../utils/constants";
 
 // Full width background image
 export default function IVFSectionBackgroundImage() {
@@ -68,7 +69,7 @@ export default function IVFSectionBackgroundImage() {
             className="inline-flex items-center justify-center gap-2 bg-white text-pink-600 
             hover:bg-pink-50 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all font-semibold"
           >
-            <Phone className="w-5 h-5" /> +91 44 6555 6666
+            <Phone className="w-5 h-5" /> {maakauveryPhone}
           </a>
           <button 
             className="inline-flex items-center justify-center gap-2 
@@ -156,7 +157,7 @@ function IVFSectionImageOnSide() {
                   className="inline-flex items-center justify-center gap-2 bg-white text-pink-600 
                   hover:bg-pink-50 px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all font-semibold"
                 >
-                  <Phone className="w-5 h-5" /> +91 44 6555 6666
+                  <Phone className="w-5 h-5" /> {maakauveryPhone}
                 </a>
                 <button 
                   className="inline-flex items-center justify-center gap-2 

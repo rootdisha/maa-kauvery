@@ -4,9 +4,9 @@ import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
 import Logo from "../Images/logo.png";
 import { FaWhatsapp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-// import AppointmentForm from "../Components/AppointmentForm"
+import { maakauveryPhone } from "../utils/constants";
 
-const CONTACT_NUMBER = "+91 44 6555 6666"
+const CONTACT_NUMBER = maakauveryPhone;
 
 export default function Navbar({ onContactClick }) {
   const [menuOpen, setMenuOpen] = useState(false);       // mobile menu
@@ -20,35 +20,57 @@ export default function Navbar({ onContactClick }) {
         { label: "Overview", href: "Overview" },
         { label: "Leadership", href: "LeadershipSection" },
         { label: "About Maa Kauvery", href: "/fertility/about" },
-        { label: "Our Doctors", href: "/doctors" },
+        
+        { label: "Technology & Infrastructure", href: "/fertility/infrastructure" },
         { label: "Success Stories", href: "Overview" },
       ],
     },
+    { label: "Our Doctors", href: "/doctors" },
     {
-      label: "Fertility Services", 
+      label: "Treatments", 
       submenu: [       
-        { label: "ART Services", href: "/fertility/art-services" },
-        { label: "Advanced Procedures", href: "/fertility/advanced-procedures" },
-        { label: "Diagnostic Services", href: "/fertility/diagnostic-services" },
-        { label: "Additional Treatments", href: "/fertility/additional-treatments" },
-        { label: "Technology & Infrastructure", href: "/fertility/infrastructure" },
-      ],
-    },
-    {
-      label: "Treatments",
-      submenu: [
-        { label: "IVF", href: "#" },
-        {
-          label: "Donor Programs",
+        { 
+          label: "ART Services", 
           submenu: [
-            { label: "Egg Donor", href: "#" },
-            { label: "Sperm Donor", href: "#" },
-          ],
+            {label: "META", href: "/fertility/art-services"},
+            {label: "In Vitro Fertilization (IVF)", href: "#"},
+            {label: "Intracytoplasmic Sperm Injection (ICSI)", href: "#"},
+            {label: "Intrauterine Insemination (IUI)", href: "#"},
+          ]
         },
-        { label: "Fertility Testing", href: "#" },
+        { 
+          label: "Advanced Procedures", 
+          submenu: [
+            {label: "META", href: "/fertility/advanced-procedures"},
+            {label: "In Vitro Maturation (IVM)", href: "#"},
+            {label: "Laser Assisted Hatching", href: "#"},
+            {label: "Cyropreservation (freezing)", href: "#"},
+          ]
+        },
+        { 
+          label: "Diagnostic Services", 
+          submenu: [
+            {label: "META", href: "/fertility/diagnostic-services"},
+            {label: "Infertility Evaluation", href: "#"},
+            {label: "Preimplantation Genetic Testing (PGT)", href: "#"},
+            {label: "Endometrial Receptivity Testing", href: "#"},
+          ]
+
+        },
+        { 
+          label: "Additional Treatments", 
+          href: "",
+          submenu: [
+            {label: "META", href: "/fertility/additional-treatments"},
+            {label: "Fertility Preservation", href: "#"},
+            {label: "Third-Party Reproduction", href: "#"},
+            {label: "Surgical Sperm Retrieval", href: "#"},
+            {label: "Counselling", href: "#"},
+          ]          
+        },
+        
       ],
     },
-    // { label: "Blog", href: "#" },
     { label: "Contact", onClick: true},
   ];
 
@@ -60,7 +82,7 @@ export default function Navbar({ onContactClick }) {
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r/70 from-white to-[#9781bc] 
       backdrop-blur-md text-[#70308A] shadow-md font-[pop]">
     
-      {/* ---------- Top Bar ---------- */}
+      {/*  Top Bar  */}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3">
         <Link to="/">
         <img src={Logo} alt="Maa Kauvery Fertility" className="w-32 md:w-40 object-contain" />
@@ -88,7 +110,7 @@ export default function Navbar({ onContactClick }) {
         </button>
       </div>
 
-      {/* ---------- Desktop Bottom Nav with Hover ---------- */}
+      {/*  Navbar  */}
       {/* removed border-t border-white/30 */}
       <nav className="hidden md:block bg-white/50">
         <ul className="max-w-7xl mx-auto flex gap-8 px-4 md:px-8 py-3 font-medium">
@@ -122,8 +144,9 @@ export default function Navbar({ onContactClick }) {
               {/* ---- First-level dropdown ---- */}
               {link.submenu && (
                 <ul
+                // removed
                   className="
-                    absolute left-0 mt-2 w-48 rounded-md bg-white shadow-lg z-10
+                    absolute left-0 mt-2 w-48  bg-gray-50 shadow-lg z-10 rounded-md 
                     opacity-0 invisible group-hover:opacity-100 group-hover:visible
                     transition-all duration-300 ease-out transform -translate-y-2 group-hover:translate-y-0
                   "
@@ -140,8 +163,9 @@ export default function Navbar({ onContactClick }) {
                           </button>
                           {/* ---- Second-level dropdown ---- */}
                           <ul
+                          // removed
                             className="
-                              absolute left-full top-0 mt-0 w-48 rounded-md bg-white shadow-lg
+                              absolute left-full top-0 mt-0 w-48 bg-gray-50 shadow-lg rounded-md 
                               opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible
                               transition-all duration-300 ease-out transform -translate-x-2 group-hover/sub:translate-x-0
                             "

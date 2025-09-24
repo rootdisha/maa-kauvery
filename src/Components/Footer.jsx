@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import logo from "../Images/logo.png";
-import { maakauveryInsta, maakauveryFB, maakauveryYT } from "../utils/constants";
+import { maakauveryInsta, maakauveryFB, maakauveryYT, maakauveryPhone } from "../utils/constants";
 
 export default function Footer() {
   return (
@@ -34,7 +34,7 @@ export default function Footer() {
           <h4 className="text-lg font-semibold text-purple-800 mb-3">Contact Us</h4>
           <div className="flex flex-col gap-2">
             <a href="tel:+914465556666" className="flex items-center gap-2 hover:text-pink-600 transition">
-              <Phone className="w-5 h-5 text-pink-600" /> 044 6555 6666
+              <Phone className="w-5 h-5 text-pink-600" /> {maakauveryPhone}
             </a>
           </div>
           <p className="mt-2 text-sm text-gray-500">
