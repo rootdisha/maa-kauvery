@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FlaskConical, Microscope, Syringe } from "lucide-react";
+import { navBarHeight } from "../../utils/constants";
 
 export default function ARTServices() {
   const services = [
@@ -22,6 +23,7 @@ export default function ARTServices() {
   ];
 
   return (
+    <div className={navBarHeight}>
     <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 min-h-screen">
       {/* Banner */}
       <section className="relative bg-[#9781bc] py-16 px-6 text-white">
@@ -72,6 +74,7 @@ export default function ARTServices() {
           ))}
         </div>
       </section>
+    </div>
     </div>
   );
 }

@@ -13,14 +13,12 @@ export default function HeroSection() {
 
 
   return (
-    <section className="relative bg-gradient-to-r from-[#9781bc] to-white overflow-hidden">
-      {/* <Lottie animationData={bby} className="w-150 absolute"/> */}
+    // removed bg-gradient-to-r from-[#9781bc] to-white
+    <section className="relative  overflow-hidden">
       {/* subtle overlay pattern */}
       <div
         className="relative h-screen w-full bg-cover bg-center flex items-center justify-center text-white"
-        style={{
-          backgroundImage: `url(${heroBackground})`,
-        }}
+        style={{ backgroundImage: `url(${heroBackground})` }}
       >
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-black/40"></div>

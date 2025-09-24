@@ -11,7 +11,6 @@ const CONTACT_NUMBER = "+91 44 6555 6666"
 export default function Navbar({ onContactClick }) {
   const [menuOpen, setMenuOpen] = useState(false);       // mobile menu
   const [mobileDropdown, setMobileDropdown] = useState(null);
-  // const [showAppointmentForm, setShowAppointmentForm] = useState(false);
 
   const navLinks = [
     
@@ -57,15 +56,14 @@ export default function Navbar({ onContactClick }) {
     setMobileDropdown(mobileDropdown === i ? null : i);
 
   return (
-    <header className="bg-white text-[#9781bc] shadow-md font-[pop]">
-      {/* <AppointmentForm 
-        isOpen={showAppointmentForm} 
-        onClose={() => setShowAppointmentForm(false)} 
-      /> */}
+    // <header className="bg-white text-[#9781bc] shadow-md font-[pop]"> // [#70308A]
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r/70 from-white to-[#9781bc] 
+      backdrop-blur-md text-[#70308A] shadow-md font-[pop]">
+    
       {/* ---------- Top Bar ---------- */}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3">
         <Link to="/">
-        <img src={Logo} alt="Nova IVF" className="w-32 md:w-40 object-contain" />
+        <img src={Logo} alt="Maa Kauvery Fertility" className="w-32 md:w-40 object-contain" />
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
@@ -78,25 +76,6 @@ export default function Navbar({ onContactClick }) {
             <span className="font-medium text-pink-700 hover:text-white">{CONTACT_NUMBER}</span>
           </a>
 
-          <button className="bg-pink-700 text-white px-5 py-3 rounded-full 
-            font-semibold shadow 
-            hover:bg-pink-700 hover:text-white hover:border-pink-50 "
-            onClick={onContactClick} 
-          >
-            Book An Appointment
-          </button>
-          {/* {showAppointmentForm && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-              <div className="relative bg-white rounded-2xl p-8 max-w-lg w-full mx-4">
-                <button
-                  onClick={() => setShowAppointmentForm(false)}
-                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl"
-                >
-                  &times;
-                </button>
-              </div>
-            </div>
-          )} */}
         </div>
 
         <button
@@ -109,13 +88,15 @@ export default function Navbar({ onContactClick }) {
       </div>
 
       {/* ---------- Desktop Bottom Nav with Hover ---------- */}
-      <nav className="hidden md:block border-t border-[#9781bc]/20">
+      {/* removed border-t border-white/30 */}
+      <nav className="hidden md:block bg-white/50">
         <ul className="max-w-7xl mx-auto flex gap-8 px-4 md:px-8 py-3 font-medium">
           {navLinks.map((link, i) => (
             <li key={i} className="relative group">
               {/* Top level */}
               {link.onClick ? (
                 // For Contact - trigger modal
+                // removed  hoover:bg-[#f3eefc]/30 border-1 rounded-md  px-4 py-2
                 <button
                   type="button"
                   onClick={onContactClick}

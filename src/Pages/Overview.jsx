@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import patient1Img from "../Images/Patient_Stories_1.jpg";
 import patient2Img from "../Images/Patient_Stories_2.jpg";
 import patient3Img from "../Images/Patient_Stories_3.jpg";
+import { navBarHeight } from "../utils/constants";
 
 export default function OverviewPage() {
   // ---------- Data ----------
@@ -122,7 +123,7 @@ export default function OverviewPage() {
   };
 
   return (
-    <div className="bg-white text-gray-800 overflow-x-hidden">
+    <div className={`bg-white text-gray-800 overflow-x-hidden ${navBarHeight}`}>
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-[#876dad] via-[#9781bc] to-purple-100 py-24 px-6 text-center text-white">
         <motion.h1

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { navBarHeight } from "../utils/constants";
 
 /* ----------------------------------------------------
    Leadership Data
@@ -79,8 +80,8 @@ const leaders = [
 export default function LeadershipSection() {
   const [active, setActive] = useState(null);
 
-  return (
-    <section className="relative">
+  return ( // 
+    <section className= {`relative ${navBarHeight}`}>
       {/* Banner */}
      <div className="relative w-full h-72 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem]">
   {/* Background Banner */}

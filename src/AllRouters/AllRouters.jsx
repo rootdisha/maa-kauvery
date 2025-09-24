@@ -37,20 +37,23 @@ const AllRouters = () => {
       isOpen={showAppointmentForm} 
       onClose={() => setShowAppointmentForm(false)} 
       />
-
-      <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path="/branch/:id" element={<DoctorsPage />} />
-          <Route path='/Overview' element={<AboutOverview />} />
-          <Route path='/LeadershipSection' element={<LeadershipSection />} />
-          <Route path='/fertility/about' element={<AboutFertility />} />
-          <Route path='/fertility/art-services' element={<ARTServices />} />
-          <Route path='/fertility/advanced-procedures' element={<AdvancedProcedures />} />
-          <Route path='/fertility/diagnostic-services' element={<DiagnosticServices />} />
-          <Route path='/fertility/additional-treatments' element={<AdditionalTreatments />} />
-          <Route path='/fertility/infrastructure' element={<Infrastructure />} />
-          <Route path='/doctors' element={<DoctorsPage />} />
-      </Routes>
+      {/* Add padding-top to account for fixed navbar */}
+       {/* adjust based on navbar height - do this in each page as needed*/}
+      {/* <div className="pt-[140px]"> */}
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path="/branch/:id" element={<DoctorsPage />} />
+            <Route path='/Overview' element={<AboutOverview />} />
+            <Route path='/LeadershipSection' element={<LeadershipSection />} />
+            <Route path='/fertility/about' element={<AboutFertility />} />
+            <Route path='/fertility/art-services' element={<ARTServices />} />
+            <Route path='/fertility/advanced-procedures' element={<AdvancedProcedures />} />
+            <Route path='/fertility/diagnostic-services' element={<DiagnosticServices />} />
+            <Route path='/fertility/additional-treatments' element={<AdditionalTreatments />} />
+            <Route path='/fertility/infrastructure' element={<Infrastructure />} />
+            <Route path='/doctors' element={<DoctorsPage />} />
+        </Routes>
+      {/* </div> */}
     </div>
   )
 }

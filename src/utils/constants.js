@@ -4,3 +4,5 @@ export const maakauveryPhone = "+91 44 6555 6666";
 export const maakauveryInsta = "https://www.instagram.com/maa.fertility/";
 export const maakauveryFB = "#";
 export const maakauveryYT = "#";
+
+export const navBarHeight = "pt-[170px]"
