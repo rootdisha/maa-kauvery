@@ -25,7 +25,7 @@ export default function BranchList() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 py-16 px-6">
+    <section className="bg-gradient-to-r via-[#876dad]/40 from-pink-900/50 to-transparent py-16 px-6">
       <h1 className="text-3xl md:text-4xl font-bold text-center text-[#9781bc] mb-10">
         Our Locations
       </h1>

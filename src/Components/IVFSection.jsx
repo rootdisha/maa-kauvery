@@ -73,7 +73,7 @@ export default function IVFSectionBackgroundImage() {
           </a>
           <button 
             className="inline-flex items-center justify-center gap-2 
-              bg-pink-600 text-white px-8 py-4 rounded-full 
+              bg-[#B83A63] text-white px-8 py-4 rounded-full 
               shadow-lg hover:shadow-xl hover:bg-pink-700 transition-all font-semibold"
             onClick={() => setShowAppointmentForm(true)} 
           >
@@ -161,7 +161,7 @@ function IVFSectionImageOnSide() {
                 </a>
                 <button 
                   className="inline-flex items-center justify-center gap-2 
-                    bg-pink-600 text-white px-8 py-4 rounded-full 
+                    bg-[#B83A63] text-white px-8 py-4 rounded-full 
                     shadow-lg hover:shadow-xl hover:bg-pink-700 transition-all font-semibold"
                   onClick={() => setShowAppointmentForm(true)} 
                 >

@@ -3,3 +3,4 @@ pink-100
 [#9781bc]
 hover:bg-[#876dad]
 #70308A  // nav bar
+#B83A63

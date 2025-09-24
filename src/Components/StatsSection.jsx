@@ -12,10 +12,10 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="bg-[#9781bc] text-white py-16 px-4">
+    <section className="bg-[#B83A63] text-purple-100 py-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
         {/* Top Stats */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 mb-12">
+        {/* <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 mb-12">
           {stats.map((item, idx) => (
             <motion.div
               key={idx}
@@ -30,7 +30,7 @@ export default function StatsSection() {
               <p className="text-black font-semibold">{item.label}</p>
             </motion.div>
           ))}
-        </div>
+        </div> */}
 
         {/* Heading */}
         <motion.h2
@@ -40,8 +40,8 @@ export default function StatsSection() {
           viewport={{ once: true }}
           className="text-2xl md:text-3xl font-bold mb-4"
         >
-          Kauvery IVF is India&apos;s leading fertility care provider and the<br />
-          1st to follow international protocols.
+          Maa Kauvery is India&apos;s leading fertility care provider and the
+          first to follow international protocols.
         </motion.h2>
 
         {/* Paragraph */}

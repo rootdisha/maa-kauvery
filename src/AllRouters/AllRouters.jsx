@@ -26,7 +26,7 @@ const AllRouters = () => {
       {/* Floating Book Now Button */}
       <button
         onClick={() => setShowAppointmentForm(true)}
-        className="fixed bottom-6 right-6 z-50 bg-pink-600 text-white px-6 py-4 rounded-full shadow-2xl hover:bg-pink-700 hover:scale-110 transition-all duration-300 flex items-center gap-2 font-semibold"
+        className="fixed bottom-6 right-6 z-50 bg-[#B83A63] text-white px-6 py-4 rounded-full shadow-2xl hover:bg-pink-700 hover:scale-110 transition-all duration-300 flex items-center gap-2 font-semibold"
       >
         <Calendar className="w-5 h-5" />
         BOOK NOW

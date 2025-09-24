@@ -60,19 +60,19 @@ const FertilityTreatments = () => {
   return (
     <section
       id="fertility-treatments"
-      className="bg-gray-50 py-20 px-4 md:px-10 lg:px-20"
+      className=" py-20 px-4 md:px-10 lg:px-20 bg-[#9781bc] "
     >
       <div className=" mx-auto text-center">
-        {/* <motion.h2
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-[heading] text-[#9781bc] mb-12"
+          className="text-3xl md:text-4xl text-purple-100 mb-12 font-[pop]"
         >
           Fertility Treatments We Offer
-        </motion.h2> */}
+        </motion.h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 ">
           {fertilityTreatments.map((treatment, i) => (
             <motion.div
               key={i}
@@ -85,7 +85,7 @@ const FertilityTreatments = () => {
                 scale: 1.05,
                 boxShadow: "0px 6px 20px rgba(151,129,188,0.35)",
               }}
-              className="relative bg-white rounded-xl p-5 text-center transition duration-300 overflow-hidden group h-44 flex flex-col items-center justify-center"
+              className="relative bg-purple-100 rounded-xl p-5 text-center transition duration-300 overflow-hidden group h-44 flex flex-col items-center justify-center"
             >
               {/* Animated border box */}
               <motion.div
