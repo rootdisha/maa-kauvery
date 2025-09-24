@@ -20,7 +20,7 @@ export default function IVFSectionBackgroundImage() {
         alt="Mother and Baby"
         className="w-full h-full object-cover opacity-20"
       />
-      <div className="absolute inset-0 bg-gradient-to-r via-[#876dad]/40 from-pink-900/50 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r via-[#D2A855]/60 from-[#9781bc]/70 to-[#B83A63]/60 "></div>
     </div>
 
     {/* Content Over Background */}

@@ -1,6 +1,12 @@
-purple-100
-pink-100
-[#9781bc]
-hover:bg-[#876dad]
-#70308A  // nav bar
-#B83A63
+purple-100      // instead of white or gray
+pink-100        // instead of white or gray
+[#9781bc]     // primary colour of the website
+hover:bg-[#876dad] // for hover accents
+[#70308A]     // primary dark colour
+[#B83A63]     // Maa Kauvery CTA colour. representing MK of sorts
+[#D2A855]     // in colour gradients
+
+// following gradient represents transforming client's life via maa kauvery
+// colours from logo
+bg-gradient-to-r via-[#D2A855]/60 from-[#9781bc]/70 to-[#B83A63]/60
+bg-gradient-to-r via-[#D2A855] from-[#9781bc] to-[#B83A63]

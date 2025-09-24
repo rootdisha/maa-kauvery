@@ -20,7 +20,6 @@ export default function Navbar({ onContactClick }) {
         { label: "Overview", href: "Overview" },
         { label: "Leadership", href: "LeadershipSection" },
         { label: "About Maa Kauvery", href: "/fertility/about" },
-        
         { label: "Technology & Infrastructure", href: "/fertility/infrastructure" },
         { label: "Success Stories", href: "Overview" },
       ],
@@ -32,28 +31,26 @@ export default function Navbar({ onContactClick }) {
         { 
           label: "ART Services", 
           submenu: [
-            {label: "META", href: "/fertility/art-services"},
-            {label: "In Vitro Fertilization (IVF)", href: "#"},
-            {label: "Intracytoplasmic Sperm Injection (ICSI)", href: "#"},
-            {label: "Intrauterine Insemination (IUI)", href: "#"},
+            // {label: "META", href: "/wip"},
+            {label: "In Vitro Fertilization (IVF)", href: "/fertility/art-services"},
+            {label: "Intracytoplasmic Sperm Injection (ICSI)", href: "/fertility/art-services"},
+            {label: "Intrauterine Insemination (IUI)", href: "/fertility/art-services"},
           ]
         },
         { 
           label: "Advanced Procedures", 
           submenu: [
-            {label: "META", href: "/fertility/advanced-procedures"},
-            {label: "In Vitro Maturation (IVM)", href: "#"},
-            {label: "Laser Assisted Hatching", href: "#"},
-            {label: "Cyropreservation (freezing)", href: "#"},
+            {label: "In Vitro Maturation (IVM)", href: "/fertility/advanced-procedures"},
+            {label: "Laser Assisted Hatching", href: "/fertility/advanced-procedures"},
+            {label: "Cyropreservation (freezing)", href: "/fertility/advanced-procedures"},
           ]
         },
         { 
           label: "Diagnostic Services", 
           submenu: [
-            {label: "META", href: "/fertility/diagnostic-services"},
-            {label: "Infertility Evaluation", href: "#"},
-            {label: "Preimplantation Genetic Testing (PGT)", href: "#"},
-            {label: "Endometrial Receptivity Testing", href: "#"},
+            {label: "Infertility Evaluation", href: "/fertility/diagnostic-services"},
+            {label: "Preimplantation Genetic Testing (PGT)", href: "/fertility/diagnostic-services"},
+            {label: "Endometrial Receptivity Testing", href: "/fertility/diagnostic-services"},
           ]
 
         },
@@ -61,11 +58,10 @@ export default function Navbar({ onContactClick }) {
           label: "Additional Treatments", 
           href: "",
           submenu: [
-            {label: "META", href: "/fertility/additional-treatments"},
-            {label: "Fertility Preservation", href: "#"},
-            {label: "Third-Party Reproduction", href: "#"},
-            {label: "Surgical Sperm Retrieval", href: "#"},
-            {label: "Counselling", href: "#"},
+            {label: "Fertility Preservation", href: "/fertility/additional-treatments"},
+            {label: "Third-Party Reproduction", href: "/fertility/additional-treatments"},
+            {label: "Surgical Sperm Retrieval", href: "/fertility/additional-treatments"},
+            {label: "Counselling", href: "/fertility/additional-treatments"},
           ]          
         },
         

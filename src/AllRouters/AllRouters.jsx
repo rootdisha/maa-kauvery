@@ -13,6 +13,7 @@ import Infrastructure from '../Pages/FertilityServices/Infrastructure'
 import AboutFertility from '../Pages/FertilityServices/AboutFertility'
 import DoctorsPage from "../Pages/DoctorsPage" 
 import { Calendar } from 'lucide-react'
+import PlaceholderPage from '../Pages/PlaceholderPage'
 
 
 const AllRouters = () => {
@@ -52,6 +53,7 @@ const AllRouters = () => {
             <Route path='/fertility/additional-treatments' element={<AdditionalTreatments />} />
             <Route path='/fertility/infrastructure' element={<Infrastructure />} />
             <Route path='/doctors' element={<DoctorsPage />} />
+            <Route path='/wip' element={<PlaceholderPage />} />
         </Routes>
       {/* </div> */}
     </div>

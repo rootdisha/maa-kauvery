@@ -33,7 +33,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-r via-[#876dad]/40 from-pink-900/50 to-transparent py-20 px-4 md:px-10 lg:px-20 overflow-hidden">
+    <section className="relative bg-gradient-to-r via-[#D2A855]/60 from-[#9781bc]/70 to-[#B83A63]/60 py-20 px-4 md:px-10 lg:px-20 overflow-hidden">
       {/* Background Glows */}
       <div className="absolute -top-16 -left-16 w-72 h-72 bg-pink-300/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl"></div>
