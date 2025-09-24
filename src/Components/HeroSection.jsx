@@ -25,12 +25,13 @@ export default function HeroSection() {
 
       {/* Foreground text */}
       <div className="relative z-10 text-center">
-        
-        <h1 className="text-9xl font-[hng] text-purple-100/50 leading-tight tracking-wide">
+          <h1 className="text-9xl font-[hng] leading-tight tracking-wide bg-gradient-to-r from-[#9781bc]/80 via-[#D2A855]/80 to-[#B83A63]/80 bg-clip-text text-transparent">
             Build the Family You Dream Of
           </h1>
-
-          <h3 className='text-purple-100/50 leading-tight tracking-wide'>Care to Cradle, with you always.</h3>
+          {/* <h2 className='text-purple-100/50 leading-tight tracking-wide'> */}
+          <h2 className="text-2xl leading-tight tracking-wide bg-gradient-to-r from-[#9781bc] via-[#D2A855] to-[#B83A63] bg-clip-text text-transparent">
+            Care to Cradle, with you always.
+          </h2>
           
       </div>
     </div>
