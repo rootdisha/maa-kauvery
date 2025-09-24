@@ -23,6 +23,17 @@ export default function Navbar() {
       ],
     },
     {
+      label: "Fertility Services", 
+      submenu: [
+        { label: "About Fertility Centre", href: "/fertility/about" },
+        { label: "ART Services", href: "/fertility/art-services" },
+        { label: "Advanced Procedures", href: "/fertility/advanced-procedures" },
+        { label: "Diagnostic Services", href: "/fertility/diagnostic-services" },
+        { label: "Additional Treatments", href: "/fertility/additional-treatments" },
+        { label: "Technology & Infrastructure", href: "/fertility/infrastructure" },
+      ],
+    },
+    {
       label: "Treatments",
       submenu: [
         { label: "IVF", href: "#" },
