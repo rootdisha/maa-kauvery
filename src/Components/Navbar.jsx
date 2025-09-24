@@ -70,6 +70,7 @@ export default function Navbar({ onContactClick }) {
           <a href={"tel:"+CONTACT_NUMBER.replace(/\s/g, '')} 
             className="flex items-center gap-2
             hover:bg-pink-700 hover:text-white hover:border-pink-50 
+            bg-white/50
             px-5 py-3 rounded-full  hover:shadow-md transition
              ">
             <FaPhoneAlt className="text-lg text-pink-700 hover:text-white" />
