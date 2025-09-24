@@ -18,6 +18,7 @@ export default function Navbar() {
       submenu: [
         { label: "Overview", href: "Overview" },
         { label: "Leadership", href: "LeadershipSection" },
+        { label: "About Maa Kauvery", href: "/fertility/about" },
         { label: "Our Doctors", href: "/doctors" },
         { label: "Success Stories", href: "#" },
       ],
@@ -25,7 +26,7 @@ export default function Navbar() {
     {
       label: "Fertility Services", 
       submenu: [
-        { label: "About Fertility Centre", href: "/fertility/about" },
+        
         { label: "ART Services", href: "/fertility/art-services" },
         { label: "Advanced Procedures", href: "/fertility/advanced-procedures" },
         { label: "Diagnostic Services", href: "/fertility/diagnostic-services" },
@@ -68,10 +69,6 @@ export default function Navbar() {
             <span className="font-medium">{CONTACT_NUMBER}</span>
           </a>
 
-          {/* <a href="tel:+919999999999" className="flex items-center gap-2 ">
-            <FaWhatsapp className="text-lg text-[#25d366]" />
-            <span className="font-medium ">{CONTACT_NUMBER}</span>
-          </a> */}
           <button className="bg-[#9781bc] text-white px-5 py-2 rounded-md font-semibold shadow hover:bg-[#876dad]">
             BOOK NOW
           </button>

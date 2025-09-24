@@ -23,15 +23,6 @@ export default function DoctorsPage() {
         
         const csvText = await response.text();
         
-        console.log("CSV loaded, first 200 chars:", csvText.substring(0, 200));
-        
-        // CSV no longer has table header
-        // Parse the CSV - the first row is "Table 1", second row has headers
-        // const lines = csvText.split('\n');
-        
-        // Remove "Table 1" line and parse with headers
-        // const csvWithoutTableHeader = lines.slice(1).join('\n');
-        
         const parsed = Papa.parse(csvText, {
           header: true,
           skipEmptyLines: true,

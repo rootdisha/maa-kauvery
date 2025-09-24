@@ -7,10 +7,8 @@ export const fetchDoctorsData = async () => {
     if (!response.ok) throw new Error('CSV file not found');
     
     const csvText = await response.text();
-    const lines = csvText.split('\n');
-    const csvWithoutTableHeader = lines.slice(1).join('\n');
     
-    const parsed = Papa.parse(csvWithoutTableHeader, {
+    const parsed = Papa.parse(csvText, {
       header: true,
       skipEmptyLines: true,
       transformHeader: (header) => header.trim()

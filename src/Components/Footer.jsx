@@ -32,11 +32,8 @@ export default function Footer() {
         >
           <h4 className="text-lg font-semibold text-purple-800 mb-3">Contact Us</h4>
           <div className="flex flex-col gap-2">
-            <a href="tel:+918049436667" className="flex items-center gap-2 hover:text-pink-600 transition">
-              <Phone className="w-5 h-5 text-pink-600" /> +91 80494 36667
-            </a>
-            <a href="mailto:info@nifclinic.com" className="flex items-center gap-2 hover:text-pink-600 transition">
-              <Mail className="w-5 h-5 text-pink-600" /> info@nifclinic.com
+            <a href="tel:+914465556666" className="flex items-center gap-2 hover:text-pink-600 transition">
+              <Phone className="w-5 h-5 text-pink-600" /> 044 6555 6666
             </a>
           </div>
           <p className="mt-2 text-sm text-gray-500">

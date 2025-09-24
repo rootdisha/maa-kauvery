@@ -8,6 +8,10 @@ import {
   StarIcon,
   MapPinIcon,
 } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
+import patient1Img from "../Images/Patient_Stories_1.jpg";
+import patient2Img from "../Images/Patient_Stories_2.jpg";
+import patient3Img from "../Images/Patient_Stories_3.jpg";
 
 export default function OverviewPage() {
   // ---------- Data ----------
@@ -31,6 +35,40 @@ export default function OverviewPage() {
       icon: <UsersIcon className="w-6 h-6 text-purple-500 mr-2" />,
     },
   ];
+
+  const stories2 = [
+    {
+      id: 1,
+      name: "Kumararaji Muthukumaraswamy",
+      image: patient1Img,
+      testimonial:
+      "Surgeon Dr Gopal Murugan & Cardiologist Dr. Shivakadasham clearly explained \
+       the importance of Angioplasty before surgery. I was very comfortable with \
+      services they provide that includes surgery. All the staff nurses took good \
+      care of me and my attendants. All medical and non-medical staffs monitored me \
+      during my stay here. The hospital is cleanly maintained and the environment \
+      is also good. I thank all the staff for the co-operation extended to me.",
+    },
+    {
+      id: 2,
+      name: "Venkataraman Narayana",
+      image: patient2Img,
+      testimonial:
+        "Competent doctors and caring staff. My father, aged 89 was cared for \
+        so well by the nurses who ran the extra mile in motivating my father \
+        and helping him heal faster. Room facilities and services were timely \
+        and responsive.",
+    },
+    {
+      id: 3,
+      name: "Sita Krishnamoorthy",
+      image: patient3Img,
+      testimonial:
+        "From Ventilator to Treadmill in 9 Weeks: My heartfelt gratitude \
+        for the wonderful medical care Dr. Aravindan and his team of doctors \
+        rendered me at Kauvery hospital…",
+    },
+  ];  
 
   const values = [
     {
@@ -86,7 +124,7 @@ export default function OverviewPage() {
   return (
     <div className="bg-white text-gray-800 overflow-x-hidden">
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-purple-500 via-pink-400 to-purple-300 py-24 px-6 text-center text-white">
+      <section className="relative bg-gradient-to-br from-[#876dad] via-[#9781bc] to-purple-100 py-24 px-6 text-center text-white">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,37 +143,49 @@ export default function OverviewPage() {
         </motion.p>
       </section>
 
-      {/* Patient Stories */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
-          >
-            Patient Stories
-          </motion.h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {stories.map((s, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                custom={i}
-                whileHover={{ scale: 1.03 }}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl flex flex-col"
-              >
-                <div className="flex items-center mb-2">{s.icon}<span className="font-semibold text-gray-800">{s.name}</span></div>
-                <blockquote className="italic text-gray-700">“{s.quote}”</blockquote>
-              </motion.div>
-            ))}
-          </div>
+     
+
+      <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 py-16 px-6">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-[#9781bc] mb-16">
+          Patient Stories
+        </h1>
+
+        <div className="space-y-20 max-w-6xl mx-auto">
+          {stories2.map((story, index) => (
+            <motion.div
+              key={story.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className={`flex flex-col md:flex-row items-center gap-10 ${
+                index % 2 === 1 ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              {/* Image */}
+              <img
+                src={story.image}
+                alt={story.name}
+                className="w-full md:w-1/2 h-72 object-cover rounded-2xl shadow-lg"
+              />
+
+              {/* Text */}
+              <div className="md:w-1/2 text-center md:text-left">
+                <p className="text-gray-600 mb-4">{story.testimonial}</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                  — {story.name}
+                </h3>
+                <Link
+                  to="/patient-stories"
+                  className="inline-block px-6 py-3 bg-[#9781bc] text-white rounded-full shadow hover:bg-[#7a63a5] transition"
+                >
+                  Read More
+                </Link>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </div>
 
       {/* Our Values */}
       <section className="bg-gray-50 py-16 px-6">

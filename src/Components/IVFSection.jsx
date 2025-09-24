@@ -64,10 +64,10 @@ export default function IVFSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a
-              href="tel:+918049436667"
+              href="tel:+914465556666"
               className="inline-flex items-center gap-2 bg-white text-pink-600 px-5 py-3 rounded-full shadow hover:shadow-md transition"
             >
-              <Phone className="w-5 h-5" /> +91 99999 99999
+              <Phone className="w-5 h-5" /> +91 44 6555 6666
             </a>
             <button className="inline-flex items-center gap-2 bg-pink-600 text-white px-6 py-3 rounded-full shadow hover:bg-pink-700 transition">
               <Calendar className="w-5 h-5" /> Book An Appointment

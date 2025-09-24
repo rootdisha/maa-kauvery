@@ -19,7 +19,7 @@ const Home = () => {
         <BranchList />
         <StatsSection />
         {/* <FertilityServices /> */}
-        <AwardSection />
+        {/* <AwardSection /> */}
         <IVFSection />
         <FAQSection />
     </div>
