@@ -18,7 +18,7 @@ const Home = () => {
         {/* <DoctersCarousel /> */}
         <BranchList />
         <StatsSection />
-        <FertilityServices />
+        {/* <FertilityServices /> */}
         <AwardSection />
         <IVFSection />
         <FAQSection />
