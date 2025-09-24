@@ -4,14 +4,14 @@ import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
 import Logo from "../Images/logo.png";
 import { FaWhatsapp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import AppointmentForm from "../Components/AppointmentForm"
+// import AppointmentForm from "../Components/AppointmentForm"
 
 const CONTACT_NUMBER = "+91 44 6555 6666"
 
-export default function Navbar() {
+export default function Navbar({ onContactClick }) {
   const [menuOpen, setMenuOpen] = useState(false);       // mobile menu
   const [mobileDropdown, setMobileDropdown] = useState(null);
-  const [showAppointmentForm, setShowAppointmentForm] = useState(false);
+  // const [showAppointmentForm, setShowAppointmentForm] = useState(false);
 
   const navLinks = [
     
@@ -49,8 +49,8 @@ export default function Navbar() {
         { label: "Fertility Testing", href: "#" },
       ],
     },
-    { label: "Blog", href: "#" },
-    { label: "Contact", href: "#" },
+    // { label: "Blog", href: "#" },
+    { label: "Contact", onClick: true},
   ];
 
   const toggleMobileDropdown = (i) =>
@@ -58,10 +58,10 @@ export default function Navbar() {
 
   return (
     <header className="bg-white text-[#9781bc] shadow-md font-[pop]">
-      <AppointmentForm 
+      {/* <AppointmentForm 
         isOpen={showAppointmentForm} 
         onClose={() => setShowAppointmentForm(false)} 
-      />
+      /> */}
       {/* ---------- Top Bar ---------- */}
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3">
         <Link to="/">
@@ -81,11 +81,11 @@ export default function Navbar() {
           <button className="bg-pink-700 text-white px-5 py-3 rounded-full 
             font-semibold shadow 
             hover:bg-pink-700 hover:text-white hover:border-pink-50 "
-            onClick={() => setShowAppointmentForm(true)} 
+            onClick={onContactClick} 
           >
             Book An Appointment
           </button>
-          {showAppointmentForm && (
+          {/* {showAppointmentForm && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
               <div className="relative bg-white rounded-2xl p-8 max-w-lg w-full mx-4">
                 <button
@@ -96,7 +96,7 @@ export default function Navbar() {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
 
         <button
@@ -114,7 +114,16 @@ export default function Navbar() {
           {navLinks.map((link, i) => (
             <li key={i} className="relative group">
               {/* Top level */}
-              {link.submenu ? (
+              {link.onClick ? (
+                // For Contact - trigger modal
+                <button
+                  type="button"
+                  onClick={onContactClick}
+                  className="hover:text-[#7a63a8]"
+                >
+                  {link.label}
+                </button>
+              ) : link.submenu ? (
                 <button
                   type="button"
                   className="flex items-center gap-1 hover:text-[#7a63a8]"
@@ -189,7 +198,20 @@ export default function Navbar() {
         <div className="md:hidden border-t border-[#9781bc]/20 px-4 py-4 space-y-2">
           {navLinks.map((link, i) => (
             <div key={i}>
-              {link.submenu ? (
+              {link.onClick ? (
+                // Mobile Contact button
+                <button
+                  className="block py-2 font-medium hover:text-[#7a63a8] w-full text-left"
+                  onClick={() => {
+                    onContactClick();
+                    setMenuOpen(false);
+                  }}
+                >
+                  {link.label}
+                </button>
+              ) :
+              
+              link.submenu ? (
                 <>
                   <button
                     className="flex justify-between w-full py-2 font-medium text-left hover:text-[#7a63a8]"
