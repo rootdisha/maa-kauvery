@@ -17,25 +17,41 @@ export const branchImages = [
     name: "Chennai - Radial Road",
     img: radialImg,
     url: "https://www.kauveryhospital.com/our-locations/chennai-radial-road/",
+    address: "No. 2/473, Radial Road\
+    Kovilambakkam, Chennai – 600 129\
+    Tamil Nadu, India.",
+    phone: "+91 44 6111 6111"
   },
   {
     name: "Chennai - Vadapalani",
     img: vadapalaniImg,
     url: "https://www.kauveryhospital.com/our-locations/chennai-vadapalani/",
+    address: "23/1, Arcot Rd, Vadapalani, Chennai, Tamil Nadu 600026",
+    phone: "044 4000 6000"
   },
   {
     name: "Hosur",
     img: hosurImg,
     url: "https://www.kauveryhospital.com/our-locations/hosur/",
+    address: "35, Shanthi Nagar\
+    Hosur – 635 109\
+    (Opp. CSI Church)",
+    phone: "04344 272727"
   },
   {
-    name: "Maa Kauvery Trichy",
+    name: "Trichy",
     img: trichyImg,
     url: "https://www.kauveryhospital.com/maa-kauvery-trichy/women-children-hospital/",
+    address: "No.27 , Alexandria Road, Cantonment\
+    Trichy – 620001, Tamilnadu, India.",
+    phone: "0431 4077777"
   },
   {
     name: "Salem",
     img: salemImg,
     url: "https://www.kauveryhospital.com/our-locations/salem/",
+    address: "#9/50, Trichy Main Road,\
+    Seelanaickenpatti, Salem – 636201.",
+    phone: "0427 2677777"
   },
 ];
