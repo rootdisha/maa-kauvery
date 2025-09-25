@@ -4,8 +4,11 @@ import { FaUser, FaPhone } from "react-icons/fa";
 import BgImg from "../Images/8682612.jpg"; // check path
 import bby from "../assets/Baby.json"
 import Lottie from "lottie-react";
-
-import heroBackground from '../Images/angela-duxbury-07HVdZ7fnmQ-unsplash.jpg';
+// 
+import heroBackground from '../Images/hu-chen-Rtly0Yrtv8I-unsplash.jpg';
+import heroBackground2 from '../Images/vatsal-bhatt-gCbW7cDxSaI-unsplash.jpg';
+import heroBackground1 from '../Images/emmalee-couturier-oFx8LJcKO00-unsplash.jpg';
+import heroBackgroundGrey from '../Images/angela-duxbury-07HVdZ7fnmQ-unsplash.jpg';
 import heroBackgroundVertical from '../Images/charlesdeluvio-nENtqUAiNm8-unsplash.jpg';
 
 
@@ -17,8 +20,24 @@ export default function HeroSection() {
     <section className="relative  overflow-hidden">
       {/* subtle overlay pattern */}
       <div
-        className="relative h-screen w-full bg-cover bg-center flex items-center justify-center text-white"
-        style={{ backgroundImage: `url(${heroBackground})` }}
+        className="relative h-screen w-full flex items-center justify-center text-white"
+        style={{ 
+          backgroundImage: `url(${heroBackground})`,
+          backgroundSize: '120%', // 120% = zoomed out, 80% = zoomed in
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat'
+        }}
+        // backgroundPosition: 'center center'     // Centered (default)
+        // backgroundPosition: 'center top'        // Pan up
+        // backgroundPosition: 'center bottom'     // Pan down  
+        // backgroundPosition: 'left center'       // Pan left
+        // backgroundPosition: 'right center'      // Pan right
+        // backgroundPosition: 'left top'          // Pan to top-left corner
+        // backgroundPosition: 'right bottom'      // Pan to bottom-right corner
+        // backgroundPosition: '30% 70%'           // 30% from left, 70% from top
+        // backgroundPosition: '50% 20%'           // Centered horizontally, near top
+        // backgroundPosition: '-100px 0px'        // Shift 100px left
+        // backgroundPosition: '0px -50px'         // Shift 50px up
       >
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-black/40"></div>
