@@ -7,6 +7,26 @@ import { MapPin, ChevronDown } from 'lucide-react';
 // import heroBackgroundVertical from '../Images/charlesdeluvio-nENtqUAiNm8-unsplash.jpg';
 import heroBackgroundVertical from '../Images/alex-pasarelu-S8BW-Wx9G8I-unsplash.jpg';
 
+import radialImg from '../Images/building-chennai-radial.png';
+import vadapalaniImg from '../Images/building-chennai-vadapalani.png';
+import hosurImg from '../Images/building-hosur.jpg';
+import trichyImg from '../Images/building-trichy.png';
+import salemImg from '../Images/building-salem.jpg';
+
+const branchImages = [
+  { name: "Chennai - Radial Road", img: radialImg },
+  { name: "Chennai - Vadapalani", img: vadapalaniImg },
+  { name: "Hosur", img: hosurImg },
+  { name: "Maa Kauvery Trichy", img: trichyImg },
+  { name: "Salem", img: salemImg }
+];
+
+const getBranchImage = (branchName) => {
+  const branch = branchImages.find(branch => branch.name === branchName);
+  console.log(branchName,  " ", branch ? branch.img : null );
+  return branch ? branch.img : null;
+};
+
 export default function BranchList() {
   const [locations, setLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState('');
@@ -15,6 +35,7 @@ export default function BranchList() {
     const loadLocations = async () => {
       const locs = await getLocations();
       setLocations(locs);
+      console.log(locs);
     };
     loadLocations();
   }, []);
@@ -40,13 +61,13 @@ export default function BranchList() {
           >
             <Link to={`/branch/${index}`}>
               <img
-                src={heroBackgroundVertical}
+                src={getBranchImage(branch)}
                 alt={branch || "Branch"}
                 className="h-56 w-full object-cover"
               />
               <div className="p-5 text-center">
                 <h2 className="text-lg font-semibold text-gray-800">
-                  {branch.name || branch}
+                  {branch}
                 </h2>
               </div>
             </Link>

@@ -12,7 +12,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="bg-[#B83A63] text-purple-100 py-16 px-4">
+    <section className="bg-[#9781bc] text-purple-100 py-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
         {/* Top Stats */}
         {/* <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 mb-12">
