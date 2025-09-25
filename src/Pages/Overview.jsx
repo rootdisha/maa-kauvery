@@ -235,7 +235,7 @@ export default function OverviewPage() {
       </section>
 
       {/* Locations */}
-      <section className="py-16 px-6">
+      {/* <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -264,7 +264,7 @@ export default function OverviewPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

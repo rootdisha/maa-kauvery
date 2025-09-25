@@ -60,6 +60,7 @@ const AllRouters = () => {
             <Route path='/fertility/additional-treatments' element={<AdditionalTreatments />} />
             <Route path='/fertility/infrastructure' element={<Infrastructure />} />
             <Route path='/doctors' element={<DoctorsPage />} />
+            <Route path='/contact' element={<PlaceholderPage />} />
             <Route path='/wip' element={<PlaceholderPage />} />
         </Routes>
       {/* </div> */}

@@ -67,7 +67,8 @@ export default function Navbar({ onContactClick }) {
         
       ],
     },
-    { label: "Contact", onClick: true},
+    // { label: "Contact", onClick: true},
+    { label: "Contact", href: "/contact"},
   ];
 
   const toggleMobileDropdown = (i) =>
