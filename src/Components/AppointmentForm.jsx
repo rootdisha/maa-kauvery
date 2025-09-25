@@ -1,31 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { maakauveryEmail } from "../utils/constants"
 import { X, Calendar, Mail } from "lucide-react";
+import { getLocations } from "../utils/doctorsData";
 
 export default function SimpleAppointmentForm({ isOpen, onClose }) {
+  const [locations, setLocations] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    location: "",
     comment: ""
   });
+
+  useEffect(() => {
+    const loadLocations = async () => {
+      const locs = await getLocations();
+      setLocations(locs);
+      console.log(locs);
+    };
+    loadLocations();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // const handleChangeLocation = (e) => {
+  //   const value = e.target.value;
+  //   setSelectedLocation(value);
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     
     const subject = `Appointment Request from ${formData.name}`;
-    const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-${formData.comment ? `\nComments:\n${formData.comment}` : ''}
-    `.trim();
+    const body = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone}`,
+      `Location: ${formData.location}`,
+      formData.comment ? `\r\nComments:\r\n${formData.comment}` : '',
+      '\r\nSent from Maa Kauvery website.'
+    ].filter(Boolean).join('\r\n');
 
     const mailtoLink = `mailto:${maakauveryEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
@@ -106,6 +125,26 @@ ${formData.comment ? `\nComments:\n${formData.comment}` : ''}
               placeholder="+91 98765 43210"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition"
             />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Location <span className="text-red-500">*</span>
+            </label>
+            <select
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition bg-white"
+            >
+              <option value="">Select Location</option>
+              {locations.map((location, index) => (
+                <option key={index} value={location}>
+                  {location}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div>
