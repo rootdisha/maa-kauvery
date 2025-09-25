@@ -4,7 +4,7 @@ import { navBarHeight } from "../../utils/constants";
 
 export default function AboutFertility() {
   return (
-    <div className={`bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 min-h-screen ${navBarHeight}`}>
+    <div className={`bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] min-h-screen ${navBarHeight}`}>
       <section className="relative bg-[#9781bc] py-16 px-6 text-white">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}

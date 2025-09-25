@@ -76,7 +76,7 @@ export default function DoctorsPage() {
   if (loading) {
     return (
       <div className={navBarHeight}>
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] flex items-center justify-center">
         <div className="text-center">
           <div className="text-2xl text-[#9781bc] mb-4">Loading doctors...</div>
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#9781bc] mx-auto"></div>
@@ -89,7 +89,7 @@ export default function DoctorsPage() {
   if (error) {
     return (
       <div className={navBarHeight}>
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] flex items-center justify-center">
         <div className="bg-white rounded-2xl p-8 shadow-lg max-w-md text-center">
           <div className="text-red-500 text-xl font-bold mb-4">Error Loading Doctors</div>
           <p className="text-gray-700 mb-4">{error}</p>
@@ -105,7 +105,7 @@ export default function DoctorsPage() {
   if (doctors.length === 0) {
     return (
       <div className={navBarHeight}>
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] flex items-center justify-center">
         <div className="bg-white rounded-2xl p-8 shadow-lg max-w-md text-center">
           <div className="text-gray-700 text-xl font-bold mb-4">No Doctors Found</div>
           <p className="text-gray-600">The CSV file appears to be empty or incorrectly formatted.</p>
@@ -117,7 +117,7 @@ export default function DoctorsPage() {
 
   return (
     <div className={navBarHeight}>
-      <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 min-h-screen">
+      <div className="bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] min-h-screen">
         {/* Hero Section */}
         <section className="relative bg-[#9781bc] py-16 px-6 text-white">
           <motion.div
@@ -206,7 +206,7 @@ export default function DoctorsPage() {
                         ) : null}
                         {/* Doctor Image Placeholder */}
                         {!doctor["Doctor photo"] && (
-                          <div className="h-full bg-gradient-to-br from-purple-200 to-pink-200 flex items-center justify-center">
+                          <div className="h-full bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] flex items-center justify-center">
                             <Users className="w-20 h-20 text-white opacity-50" />
                           </div>
                         )} 

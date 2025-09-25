@@ -20,11 +20,11 @@ export default function IVFSectionBackgroundImage() {
         alt="Mother and Baby"
         className="w-full h-full object-cover opacity-20"
       />
-      <div className="absolute inset-0 bg-gradient-to-r via-[#D2A855]/60 from-[#9781bc]/70 to-[#B83A63]/60 "></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#876dad]/30 via-[#9781bc]/30 to-purple-100/30"></div>
     </div>
 
     {/* Content Over Background */}
-    <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 text-white">
+    <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24 text-[#70308A]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function IVFSectionBackgroundImage() {
           Why opt for In-Vitro Fertilization (IVF)?
         </h2>
         
-        <p className="text-lg md:text-xl mb-8 leading-relaxed text-white/90">
+        <p className="text-lg md:text-xl mb-8 leading-relaxed ">
           In-Vitro fertilization (IVF) is the most effective fertility treatment available today.
           IVF treatments offer the highest success rates and quickest time-to-pregnancy.
         </p>
@@ -97,7 +97,7 @@ function IVFSectionImageOnSide() {
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
 
   return (
-    <section className="relative bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 py-16 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] py-16 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Full-width background container with overlay */}
         <div className="relative rounded-3xl overflow-hidden shadow-2xl">

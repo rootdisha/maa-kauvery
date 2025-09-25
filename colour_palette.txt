@@ -10,3 +10,11 @@ hover:bg-[#876dad] // for hover accents
 // colours from logo
 bg-gradient-to-r via-[#D2A855]/60 from-[#9781bc]/70 to-[#B83A63]/60
 bg-gradient-to-r via-[#D2A855] from-[#9781bc] to-[#B83A63]
+
+// purple theme
+bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] // light
+bg-gradient-to-br from-[#876dad] via-[#9781bc] to-purple-100  // dark
+bg-[#9781bc] // solid color - page heads
+bg-[#B83A63] // solid color - special sections 
+bg-gradient-to-r via-[#D2A855]/60 from-[#9781bc]/70 to-[#B83A63]/60  // all logo colours with opacity
+bg-gradient-to-r via-[#D2A855] from-[#9781bc] to-[#B83A63] // all logo colours without opacity

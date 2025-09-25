@@ -13,6 +13,7 @@ export default function ARTServices() {
     {
       title: "Intracytoplasmic Sperm Injection (ICSI)",
       icon: <Microscope className="w-12 h-12 text-[#9781bc]" />,
+      // description: "A single sperm is injected directly into an egg, ideal for couples facing severe <a href='https://www.kauveryhospital.com/blog/family-and-general-medicine/male-fertility-myths-and-facts/'> male factor infertility </a>."
       description: "A single sperm is injected directly into an egg, ideal for couples facing severe male factor infertility."
     },
     {
@@ -24,7 +25,7 @@ export default function ARTServices() {
 
   return (
     <div className={navBarHeight}>
-    <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 min-h-screen">
+    <div className="bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] min-h-screen">
       {/* Banner */}
       <section className="relative bg-[#9781bc] py-16 px-6 text-white">
         <motion.h1

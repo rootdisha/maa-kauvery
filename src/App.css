@@ -6,3 +6,18 @@
     font-family: "hng";
     src: url("../public/Fonts/apollo/APOLLO.otf");
 }
+
+@keyframes pulse-soft {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.3);
+      opacity: 0.9;
+    }
+  }
+  
+  .animate-pulse-soft {
+    animation: pulse-soft 4s ease-in-out infinite;
+  }

@@ -29,7 +29,7 @@ export default function AwardSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 py-16 px-4">
+    <section className="bg-gradient-to-br from-[#fdfbff] via-[#f7f1ff] to-[#e9dcff] py-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
         {/* Section Heading */}
         <motion.h2

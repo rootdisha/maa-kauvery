@@ -125,7 +125,7 @@ export default function OverviewPage() {
   return (
     <div className={`bg-white text-gray-800 overflow-x-hidden ${navBarHeight}`}>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#876dad] via-[#9781bc] to-purple-100 py-24 px-6 text-center text-white">
+      <section className="relative bg-[#9781bc] py-24 px-6 text-center text-white">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
