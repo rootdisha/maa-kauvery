@@ -33,6 +33,7 @@ const AllRouters = () => {
           active:scale-95
           transition-all duration-300 
           animate-pulse
+          cursor-pointer
           group"
         aria-label="Book an appointment"
       >
