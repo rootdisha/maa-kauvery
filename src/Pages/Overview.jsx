@@ -8,99 +8,77 @@ import {
   StarIcon,
   MapPinIcon,
 } from "@heroicons/react/24/solid";
+import { 
+  TrendingUp, 
+  Heart, 
+  Shield, 
+  Users, 
+  UserCheck, 
+  Award 
+} from "lucide-react";
 import { Link } from "react-router-dom";
-import patient1Img from "../Images/Patient_Stories_1.jpg";
-import patient2Img from "../Images/Patient_Stories_2.jpg";
-import patient3Img from "../Images/Patient_Stories_3.jpg";
 import { navBarHeight } from "../utils/constants";
 
 export default function OverviewPage() {
   // ---------- Data ----------
-  const stories = [
-    {
-      name: "Kumararaj Muthukumaraswamy",
-      quote:
-        "Surgeon Dr Gopal Murugan & Cardiologist Dr. Shivakadasham clearly explained the importance of Angioplasty before surgery. I was very comfortable with services they provide...",
-      icon: <UsersIcon className="w-6 h-6 text-purple-500 mr-2" />,
-    },
-    {
-      name: "Sita Krishnamoorthy",
-      quote:
-        "My heartfelt gratitude for the wonderful medical care Dr. Aravindan and his team of doctors rendered me at Kauvery hospital…",
-      icon: <UsersIcon className="w-6 h-6 text-purple-500 mr-2" />,
-    },
-    {
-      name: "Venkatraman Narayana",
-      quote:
-        "Competent doctors and caring staff. My father, aged 89 was cared for so well by the nurses who ran the extra mile in motivating my father…",
-      icon: <UsersIcon className="w-6 h-6 text-purple-500 mr-2" />,
-    },
-  ];
-
-  const stories2 = [
-    {
-      id: 1,
-      name: "Kumararaji Muthukumaraswamy",
-      image: patient1Img,
-      testimonial:
-      "Surgeon Dr Gopal Murugan & Cardiologist Dr. Shivakadasham clearly explained \
-       the importance of Angioplasty before surgery. I was very comfortable with \
-      services they provide that includes surgery. All the staff nurses took good \
-      care of me and my attendants. All medical and non-medical staffs monitored me \
-      during my stay here. The hospital is cleanly maintained and the environment \
-      is also good. I thank all the staff for the co-operation extended to me.",
-    },
-    {
-      id: 2,
-      name: "Venkataraman Narayana",
-      image: patient2Img,
-      testimonial:
-        "Competent doctors and caring staff. My father, aged 89 was cared for \
-        so well by the nurses who ran the extra mile in motivating my father \
-        and helping him heal faster. Room facilities and services were timely \
-        and responsive.",
-    },
-    {
-      id: 3,
-      name: "Sita Krishnamoorthy",
-      image: patient3Img,
-      testimonial:
-        "From Ventilator to Treadmill in 9 Weeks: My heartfelt gratitude \
-        for the wonderful medical care Dr. Aravindan and his team of doctors \
-        rendered me at Kauvery hospital…",
-    },
-  ];  
-
   const values = [
     {
       title: "Continual Improvement",
       desc: "Always improving our services, processes, and patient care.",
-      icon: <StarIcon className="w-8 h-8 text-yellow-400 mx-auto mb-2" />,
+      icon: <TrendingUp className="w-8 h-8 text-blue-500 mx-auto mb-2" />,
+      description: "Always looking to make our operations more efficient\
+      Exploring innovative and smart ways of reducing costs, without compromising on quality\
+      Knowing what is happening in the outside world, so that we can implement practices that will make us more efficient\
+      Driving efforts to make small improvements in our daily work\
+      Focusing on self-improvement to deliver better outcomes in everything we do\
+      Encouraging people to share ideas that can improve our service quality",
     },
     {
       title: "Heartfelt Personal Touch",
       desc: "Personalized care with a human touch.",
-      icon: <HeartIcon className="w-8 h-8 text-pink-400 mx-auto mb-2" />,
+      icon: <Heart className="w-8 h-8 text-pink-500 mx-auto mb-2" />,
+      description: "Greeting each patient with a smile and in a friendly manner\
+      Doing our best to make every patient feel at home\
+      Understanding that each individual has unique needs and has to be helped accordingly\
+      Striving to satisfy all the needs, big or small of our patients",
     },
     {
       title: "Ethical",
       desc: "Maintain high ethical standards in all interactions.",
-      icon: <AcademicCapIcon className="w-8 h-8 text-purple-400 mx-auto mb-2" />,
+      icon: <Shield className="w-8 h-8 text-green-500 mx-auto mb-2" />,
+      description: "Being honest and trustworthy all the time\
+      Maintaining confidentiality and protecting patient information\
+      Prescribing only what is required for the patient in terms of treatment and medication\
+      Being fully transparent in dealings with all",
     },
     {
       title: "Empathetic Care",
       desc: "Empathetic care to understand patient needs.",
-      icon: <HeartIcon className="w-8 h-8 text-red-400 mx-auto mb-2" />,
+      icon: <Users className="w-8 h-8 text-purple-500 mx-auto mb-2" />,
+      description: "Listening to each patient to understand their situation and feelings\
+      Making sure the families of patients are comfortable and have sufficient information\
+      Treating everyone equally, not giving preference to anyone\
+      Being friendly and approachable with patients and their families",
     },
     {
       title: "Real Accountability",
       desc: "Taking responsibility and being accountable.",
-      icon: <StarIcon className="w-8 h-8 text-yellow-400 mx-auto mb-2" />,
+      icon: <UserCheck className="w-8 h-8 text-orange-500 mx-auto mb-2" />,
+      description: "Taking ownership for our success\
+      Meeting all commitments made to patients, doctors, our colleagues and all other stakeholders\
+      Learning from mistakes and not blaming others when things go wrong\
+      Delivering safe patient care in a timely and efficient manner\
+      Doing whatever it takes whether it is a part of the job or not\
+      Questioning colleagues when they do not deliver on what they are supposed to",
     },
     {
       title: "Service Excellence",
       desc: "Delivering excellence in service quality and care.",
-      icon: <TrophyIcon className="w-8 h-8 text-yellow-500 mx-auto mb-2" />,
+      icon: <Award className="w-8 h-8 text-yellow-500 mx-auto mb-2" />,
+      description: "Going the extra mile to offer a great patient experience\
+      Constantly looking for ways to improve service levels at our hospitals\
+      Looking at every customer touch point and making things better\
+      Being responsive to customer feedback",
     },
   ];
 
@@ -124,7 +102,6 @@ export default function OverviewPage() {
 
   return (
     <div className={`bg-white text-gray-800 overflow-x-hidden ${navBarHeight}`}>
-      {/* Hero */}
       <section className="relative bg-[#9781bc] py-24 px-6 text-center text-white">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
@@ -144,127 +121,83 @@ export default function OverviewPage() {
         </motion.p>
       </section>
 
-     
-
-      <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 py-16 px-6">
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-[#9781bc] mb-16">
-          Patient Stories
-        </h1>
-
-        <div className="space-y-20 max-w-6xl mx-auto">
-          {stories2.map((story, index) => (
-            <motion.div
-              key={story.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className={`flex flex-col md:flex-row items-center gap-10 ${
-                index % 2 === 1 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Image */}
-              <img
-                src={story.image}
-                alt={story.name}
-                className="w-full md:w-1/2 h-72 object-cover rounded-2xl shadow-lg"
-              />
-
-              {/* Text */}
-              <div className="md:w-1/2 text-center md:text-left">
-                <p className="text-gray-600 mb-4">{story.testimonial}</p>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  — {story.name}
-                </h3>
-                <Link
-                  to="/patient-stories"
-                  className="inline-block px-6 py-3 bg-[#9781bc] text-white rounded-full shadow hover:bg-[#7a63a5] transition"
-                >
-                  Read More
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Our Values */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
-          >
-            Our Values
-          </motion.h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((v, i) => {
-              const [open, setOpen] = useState(false);
-              return (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  custom={i}
-                  onClick={() => setOpen(!open)}
-                  whileHover={{ scale: 1.03 }}
-                  className="cursor-pointer bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl text-center"
-                >
-                  {v.icon}
-                  <p className="text-xl font-medium text-purple-700">{v.title}</p>
-                  {open && (
-                    <motion.p
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="mt-3 text-gray-600"
-                    >
-                      {v.desc}
-                    </motion.p>
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
+          Kauvery Group of Hospitals launched its first hospital more than two decades ago. 
+          The founders of Kauvery Hospital were determined on creating world-class healthcare 
+          facilities that shall be affordable. The founding doctors set off on this dream in 
+          1999 with a 30-bedded hospital in Trichy, with a single-minded focus on offering the 
+          best-in-class healthcare, with a personal touch. This was a very new concept in a 
+          tier 2 city like Trichy which lacked a tertiary care hospital at the time. Today, Kauvery 
+          is a multi-specialty hospital chain with 2250+ beds in six locations including Trichy, 
+          Chennai, Salem, Hosur, Tirunelveli and Bengaluru. With twelve hospitals and a workforce 
+          of over 8000+, Kauvery’s mission is to provide exemplary secondary and tertiary care.
         </div>
       </section>
 
-      {/* Locations */}
-      {/* <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Our Values Section */}
+      <section className="bg-gray-50 py-16 px-6">
+        <div className="max-w-6xl mx-auto">
           <motion.h2
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
+            transition={{ duration: 0.8 }}
+            className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800"
           >
-            Our Locations
+            Our Core Values
           </motion.h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {locations.map((loc, i) => (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg text-center text-gray-600 mb-12 max-w-3xl mx-auto"
+          >
+            These values guide everything we do at Kauvery Hospital, ensuring exceptional care for every patient
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {values.map((value, index) => (
               <motion.div
-                key={i}
+                key={index}
+                custom={index}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                custom={i}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden"
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
               >
-                <img src={loc.img} alt={loc.name} className="w-full h-40 object-cover" />
-                <p className="p-4 text-center text-gray-700 font-semibold flex items-center justify-center">{loc.icon}{loc.name}</p>
+                {/* Icon */}
+                <div className="text-center mb-4">
+                  {value.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-center mb-3 text-gray-800">
+                  {value.title}
+                </h3>
+
+                {/* Short Description */}
+                <p className="text-gray-600 text-center mb-4 text-sm">
+                  {value.desc}
+                </p>
+
+                {/* Detailed Description */}
+                <ul className="text-gray-700 text-sm leading-relaxed list-none space-y-2">
+                  {value.description.split('\\').map((line, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="text-[#9781bc] mr-2 text-xs mt-1 font-bold">•</span>
+                      <span>{line.trim()}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
+
     </div>
   );
 }

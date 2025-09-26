@@ -14,6 +14,7 @@ import AboutFertility from '../Pages/FertilityServices/AboutFertility'
 import DoctorsPage from "../Pages/DoctorsPage" 
 import { Calendar } from 'lucide-react'
 import PlaceholderPage from '../Pages/PlaceholderPage'
+import Stories from '../Pages/Stories'
 
 
 const AllRouters = () => {
@@ -45,9 +46,6 @@ const AllRouters = () => {
       isOpen={showAppointmentForm} 
       onClose={() => setShowAppointmentForm(false)} 
       />
-      {/* Add padding-top to account for fixed navbar */}
-       {/* adjust based on navbar height - do this in each page as needed*/}
-      {/* <div className="pt-[140px]"> */}
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path="/branch/:id" element={<DoctorsPage />} />
@@ -61,9 +59,9 @@ const AllRouters = () => {
             <Route path='/fertility/infrastructure' element={<Infrastructure />} />
             <Route path='/doctors' element={<DoctorsPage />} />
             <Route path='/contact' element={<PlaceholderPage />} />
-            <Route path='/wip' element={<PlaceholderPage />} />
+            <Route path='/wip' element={<PlaceholderPage />} /> 
+            <Route path='/stories' element={<Stories />} /> 
         </Routes>
-      {/* </div> */}
     </div>
   )
 }

@@ -21,7 +21,7 @@ export default function Navbar({ onContactClick }) {
         { label: "Leadership", href: "LeadershipSection" },
         { label: "About Maa Kauvery", href: "/fertility/about" },
         { label: "Technology & Infrastructure", href: "/fertility/infrastructure" },
-        { label: "Success Stories", href: "Overview" },
+        { label: "Success Stories", href: "stories" },
       ],
     },
     { label: "Our Doctors", href: "/doctors" },
