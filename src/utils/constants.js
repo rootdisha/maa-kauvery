@@ -11,6 +11,7 @@ export const maakauveryYT = "https://www.youtube.com/@MaaKauveryFertility";
 export const maakauveryFB = "https://www.facebook.com/maakauveryfertility";
 
 export const navBarHeight = "pt-[170px]"
+export const WEB3FORMS_PUBLIC_KEY="2325ca6d-460e-4ff4-94ca-064aa57d97a9";
 
 export const branchImages = [
   {
