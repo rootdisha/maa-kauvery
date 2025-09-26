@@ -1,9 +1,4 @@
 import React  from 'react';
-import { motion } from "framer-motion";
-import { FaUser, FaPhone } from "react-icons/fa";
-import BgImg from "../Images/8682612.jpg"; // check path
-import bby from "../assets/Baby.json"
-import Lottie from "lottie-react";
 import heroBackground from '../Images/hu-chen-Rtly0Yrtv8I-unsplash.jpg';
 import heroBackground2 from '../Images/vatsal-bhatt-gCbW7cDxSaI-unsplash.jpg';
 import heroBackground1 from '../Images/emmalee-couturier-oFx8LJcKO00-unsplash.jpg';

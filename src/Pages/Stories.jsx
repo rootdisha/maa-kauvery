@@ -76,10 +76,6 @@ export default function Stories() {
      
       {/* Patient Stories */}
       <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-100 py-16 px-6">
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-[#9781bc] mb-16">
-          Patient Stories
-        </h1>
-
         <div className="space-y-20 max-w-6xl mx-auto">
           {stories.map((story, index) => (
             <motion.div
