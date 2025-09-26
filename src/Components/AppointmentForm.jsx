@@ -418,12 +418,12 @@ export default function SimpleAppointmentForm({ isOpen, onClose }) {
 
     const formPayload = new FormData();
     formPayload.append('access_key', WEB3FORMS_PUBLIC_KEY);
-    formPayload.append('subject', `Appointment Request from ${formData.name}`);
+    formPayload.append('subject', `Maa Kauvery Appointment Request from ${formData.name}`);
     formPayload.append('from_name', formData.name);
     formPayload.append('email', formData.email);
     formPayload.append('phone', formData.phone);
     formPayload.append('location', formData.location);
-    formPayload.append('message', formData.comment || 'No additional comments');
+    formPayload.append('message', formData.comment + ' - Sent from Maa Kauvery website.' || 'No additional comments');
     formPayload.append('to_email', maakauveryEmail); // Your receiving email
 
     try {
