@@ -76,11 +76,12 @@ export default function Navbar({ onContactClick }) {
 
   return (
     // <header className="bg-white text-[#9781bc] shadow-md font-[pop]"> // [#70308A]
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r/70 from-white to-[#9781bc] 
+    <header className="fixed top-0 left-0 right-0 z-50 
+    bg-white/50
       backdrop-blur-md text-[#70308A] shadow-md font-[pop]">
     
       {/*  Top Bar  */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3 ">
         <Link to="/">
         <img src={Logo} alt="Maa Kauvery Fertility" className="w-32 md:w-40 object-contain" />
         </Link>
