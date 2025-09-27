@@ -5,14 +5,13 @@ import trichyImg from '../Images/building-trichy.png';
 import salemImg from '../Images/building-salem.jpg';
 
 export const maakauveryEmail = "maa-kauvery.punctual786@passfwd.com";
-// const maakauveryEmailNEW = "maa-kauvery.punctual786@passfwd.com";
 export const maakauveryPhone = "+91 44 6 555 6 666";
 export const maakauveryInsta = "https://www.instagram.com/maa.fertility/";
 export const maakauveryYT = "https://www.youtube.com/@MaaKauveryFertility";
 export const maakauveryFB = "https://www.facebook.com/maakauveryfertility";
 
 export const navBarHeight = "pt-[170px]"
-export const WEB3FORMS_PUBLIC_KEY="2325ca6d-460e-4ff4-94ca-064aa57d97a9";
+export const WEB3FORMS_PUBLIC_KEY="9043371b-fba1-4e2a-a3ed-3269498e0efc";
 
 export const branchImages = [
   {
