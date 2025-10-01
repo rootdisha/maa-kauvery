@@ -58,10 +58,10 @@ export default function Navbar({ onContactClick }) {
           label: "Additional Treatments", 
           href: "",
           submenu: [
-            {label: "Fertility Preservation", href: "/fertility/additional-treatments"},
-            {label: "Third-Party Reproduction", href: "/fertility/additional-treatments"},
-            {label: "Surgical Sperm Retrieval", href: "/fertility/additional-treatments"},
-            {label: "Counselling", href: "/fertility/additional-treatments"},
+            {label: "Fertility Preservation", href: "/fertility/additional-treatments#fertility-preservation"},
+            {label: "Third-Party Reproduction", href: "/fertility/additional-treatments#third-party-reproduction"},
+            {label: "Surgical Sperm Retrieval", href: "/fertility/additional-treatments#surgical-sperm-retrieval"},
+            {label: "Counselling", href: "/fertility/additional-treatments#counselling-support"},
           ]          
         },
         
