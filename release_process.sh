@@ -34,7 +34,9 @@ vercel --prod # carefully follow instructions
 
 # existing deploy folder : maa-kauvery-LIVE-deployment
 cd existing-deploy-folder
-git fetch --depth 1 origin tag v1.0.7
-git checkout v1.0.7
+git fetch --depth 1 origin tag vx.y.z
+git checkout vx.y.z
 #?? rm -rf .vercel # use this folder for same deployment project don't rm
-vercel --prod # carefully follow instructions
+vercel  # Preview deploy
+OR
+vercel --prod # PRODUCTION deploy

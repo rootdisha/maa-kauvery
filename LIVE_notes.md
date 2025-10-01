@@ -1,5 +1,14 @@
 ####### Going LIVE on 2 Oct 2025 #######
 
+##### Deployments (Vercel)
+
+LIVE before go live at 12 pm 2 oct (coming soon):  https://vercel.com/disha-mockup/maa-kauvery-live/2ZjSXWaJZvgrqwnek3eRH1eVJYLC
+
+site without reviewed content ready to go live/be promoted to production at 12 pm: https://vercel.com/disha-mockup/maa-kauvery-live/83wWVWFjkix4RND5vUp8yvBW7dvv
+
+site WITH reviewed content ready to go live/be promoted post 12 pm:
+
+
 ##### LINKS
 
 vercel 
