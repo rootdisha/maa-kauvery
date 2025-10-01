@@ -26,3 +26,4 @@ doctors_data.numbers
 src/.env
 maa-kauvery.code-workspace
 .vercel
+src/Pages/FertilityServices/tempComparisonFile.jsx

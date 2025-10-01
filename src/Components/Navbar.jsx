@@ -40,9 +40,9 @@ export default function Navbar({ onContactClick }) {
         { 
           label: "Advanced Procedures", 
           submenu: [
-            {label: "In Vitro Maturation (IVM)", href: "/fertility/advanced-procedures"},
-            {label: "Laser Assisted Hatching", href: "/fertility/advanced-procedures"},
-            {label: "Cyropreservation (freezing)", href: "/fertility/advanced-procedures"},
+            {label: "In Vitro Maturation (IVM)", href: "/fertility/advanced-procedures#ivm"},
+            {label: "Laser Assisted Hatching", href: "/fertility/advanced-procedures#laser-assisted-hatching"},
+            {label: "Cyropreservation", href: "/fertility/advanced-procedures#cryopreservation"},
           ]
         },
         { 
