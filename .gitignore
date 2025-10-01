@@ -23,8 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 doctors_data.numbers
-release_process.sh
 src/.env
 maa-kauvery.code-workspace
 .vercel
-103-104-105-deploy.sh
