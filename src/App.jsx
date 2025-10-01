@@ -11,11 +11,11 @@ function App() {
     {/* <ColorPalette /> */}
     
     {/* *********UNCOMMENT FOR GO LIVE******* */}
-     {/* <AllRouters />
-     <Footer /> */}
+     <AllRouters />
+     <Footer />
      {/* ************************************ */}
 
-     <ComingSoon />
+     {/* <ComingSoon /> */}
     </>
   )
 }
