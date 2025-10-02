@@ -16,6 +16,7 @@ import { Calendar } from 'lucide-react'
 import PlaceholderPage from '../Pages/PlaceholderPage'
 import Stories from '../Pages/Stories'
 import MaaKAuveryHeartIcon from '../Components/MaaKauveryHeartIcon'
+import IVFCompleteGuide from '../Pages/FertilityServices/IVFCompleteGuide'
 
 const AllRouters = () => {
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
@@ -68,6 +69,7 @@ const AllRouters = () => {
         <Route path='/contact' element={<PlaceholderPage />} />
         <Route path='/wip' element={<PlaceholderPage />} /> 
         <Route path='/stories' element={<Stories />} /> 
+        <Route path='/fertility/ivf-complete-guide' element={<IVFCompleteGuide />} /> 
       </Routes>
     </div>
   )

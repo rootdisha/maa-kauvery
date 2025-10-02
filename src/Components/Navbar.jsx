@@ -31,10 +31,9 @@ export default function Navbar({ onContactClick }) {
         { 
           label: "ART Services", 
           submenu: [
-            // {label: "META", href: "/wip"},
-            {label: "In Vitro Fertilization (IVF)", href: "/fertility/art-services"},
-            {label: "Intracytoplasmic Sperm Injection (ICSI)", href: "/fertility/art-services"},
-            {label: "Intrauterine Insemination (IUI)", href: "/fertility/art-services"},
+            {label: "In Vitro Fertilization (IVF)", href: "/fertility/art-services#ivf"},
+            {label: "Intracytoplasmic Sperm Injection (ICSI)", href: "/fertility/art-services#icsi"},
+            {label: "Intrauterine Insemination (IUI)", href: "/fertility/art-services#iui"},
           ]
         },
         { 
