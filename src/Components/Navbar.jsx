@@ -47,9 +47,9 @@ export default function Navbar({ onContactClick }) {
         { 
           label: "Diagnostic Services", 
           submenu: [
-            {label: "Infertility Evaluation", href: "/fertility/diagnostic-services"},
-            {label: "Preimplantation Genetic Testing (PGT)", href: "/fertility/diagnostic-services"},
-            {label: "Endometrial Receptivity Testing", href: "/fertility/diagnostic-services"},
+            {label: "Infertility Evaluation", href: "/fertility/diagnostic-services#infertility-evaluation"},
+            {label: "Preimplantation Genetic Testing (PGT)", href: "/fertility/diagnostic-services#pgt"},
+            {label: "Endometrial Receptivity Testing (ERA)", href: "/fertility/diagnostic-services#era"},
           ]
 
         },
