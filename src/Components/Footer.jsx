@@ -125,7 +125,10 @@ export default function Footer() {
             className="mt-8 sm:mt-10 md:mt-12 border-t border-gray-300/60 pt-4 sm:pt-6 text-center"
           >
             <p className="text-gray-600 text-xs sm:text-sm md:text-base">
-              © {new Date().getFullYear()} Maa Kauvery Fertility Centre. All rights reserved.
+              © {new Date().getFullYear()} Maa Kauvery Fertility Centre. All rights reserved. 
+            </p>
+            <p class="developer-credit">
+              Website by <a href="http://dishamedias.com" target="_blank" rel="noopener">Disha Medias</a>  
             </p>
           </motion.div>
         </motion.div>

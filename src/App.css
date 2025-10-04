@@ -21,3 +21,19 @@
   .animate-pulse-soft {
     animation: pulse-soft 4s ease-in-out infinite;
   }
+
+  .developer-credit {
+    font-size: 0.875rem;
+    color: #666;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .developer-credit a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .developer-credit a:hover {
+    text-decoration: underline;
+  }
