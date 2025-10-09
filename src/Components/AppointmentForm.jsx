@@ -20,7 +20,6 @@ export default function SimpleAppointmentForm({ isOpen, onClose }) {
     const loadLocations = async () => {
       const locs = await getLocations();
       setLocations(locs);
-      console.log(locs);
     };
     loadLocations();
   }, []);

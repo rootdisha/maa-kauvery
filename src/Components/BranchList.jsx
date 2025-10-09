@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { branches } from "../Data/doctorsData";
+// import { branches } from "../Data/doctorsData";
 import { getLocations } from '../utils/doctorsData';
 import { MapPin, ChevronDown } from 'lucide-react';
 // import heroBackgroundVertical from '../Images/charlesdeluvio-nENtqUAiNm8-unsplash.jpg';
@@ -10,9 +10,13 @@ import { branchDetails } from '../utils/constants';
 
 const getBranchImage = (branchName) => {
   const branch = branchDetails.find(branch => branch.name === branchName);
-  console.log(branchName,  " ", branch ? branch.img : null );
   return branch ? branch.img : null;
 };
+
+const getBranchMapLocation = (branchName) => {
+  const branch = branchDetails.find(branch => branch.name === branchName);
+  return branch ? branch.mapLocation : null;
+}
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -35,7 +39,6 @@ export default function BranchList() {
     const loadLocations = async () => {
       const locs = await getLocations();
       setLocations(locs);
-      console.log(locs);
     };
     loadLocations();
   }, []);
@@ -102,6 +105,22 @@ export default function BranchList() {
                   </div>
                 </div>
               </Link>
+              
+              {/* Google Maps Button - Outside the Link */}
+              {getBranchMapLocation(branch) && (
+                <div className="px-4 pb-4">
+                  <a
+                    href={getBranchMapLocation(branch)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#9781bc] hover:bg-[#70308A] text-white rounded-lg transition-colors duration-300 text-sm font-medium"
+                  >
+                    <MapPin size={16} />
+                    View on Map
+                  </a>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

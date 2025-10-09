@@ -127,7 +127,7 @@ export default function Footer() {
             <p className="text-gray-600 text-xs sm:text-sm md:text-base">
               © {new Date().getFullYear()} Maa Kauvery Fertility Centre. All rights reserved. 
             </p>
-            <p class="developer-credit">
+            <p className="developer-credit">
               Website by <a href="http://dishamedias.com" target="_blank" rel="noopener">Disha Medias</a>  
             </p>
           </motion.div>
