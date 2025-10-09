@@ -45,6 +45,20 @@ export default function BranchesPage() {
                     <p className="text-gray-600">{branch.address}</p>
                   </div>
                 </div>
+
+                {/* Google Maps Button */}
+                {branch.mapLocation && (
+                  <a
+                    href={branch.mapLocation}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full mt-4 py-2.5 bg-[#B83A63] hover:bg-[#9d2f52] text-white rounded-lg transition-colors duration-300 text-sm font-medium group"
+                  >
+                    <MapPin size={16} className="group-hover:scale-110 transition-transform" />
+                    View on Map
+                    <ExternalLink size={14} className="opacity-70" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

@@ -32,14 +32,16 @@ export const branchDetails = [
     address: "No. 2/473, Radial Road\
     Kovilambakkam, Chennai – 600 129\
     Tamil Nadu, India.",
-    phone: "+91 44 6111 6111"
+    phone: "+91 44 6111 6111",
+    mapLocation: "https://maps.app.goo.gl/DBhBELf77McbdMLCA",
   },
   {
     name: "Chennai - Vadapalani",
     img: vadapalaniImg,
     url: "https://www.kauveryhospital.com/our-locations/chennai-vadapalani/",
     address: "23/1, Arcot Rd, Vadapalani, Chennai, Tamil Nadu 600026",
-    phone: "044 4000 6000"
+    phone: "044 4000 6000",
+    mapLocation: "https://maps.app.goo.gl/VpiYQEH5PzXCxC158",
   },
   {
     name: "Hosur",
@@ -48,7 +50,8 @@ export const branchDetails = [
     address: "35, Shanthi Nagar\
     Hosur – 635 109\
     (Opp. CSI Church)",
-    phone: "04344 272727"
+    phone: "04344 272727",
+    mapLocation: "https://maps.app.goo.gl/4axeDJaCaZJXsJpB8",
   },
   {
     name: "Trichy",
@@ -56,7 +59,9 @@ export const branchDetails = [
     url: "https://www.kauveryhospital.com/maa-kauvery-trichy/women-children-hospital/",
     address: "No.27 , Alexandria Road, Cantonment\
     Trichy – 620001, Tamilnadu, India.",
-    phone: "0431 4077777"
+    phone: "0431 4077777",
+    mapLocation: "https://maps.app.goo.gl/ms5evBu39ZuCXzHB9",
+
   },
   {
     name: "Salem",
@@ -64,6 +69,7 @@ export const branchDetails = [
     url: "https://www.kauveryhospital.com/our-locations/salem/",
     address: "#9/50, Trichy Main Road,\
     Seelanaickenpatti, Salem – 636201.",
-    phone: "0427 2677777"
+    phone: "0427 2677777",
+    mapLocation: "https://maps.app.goo.gl/PPMmUHQQMKzYtiRdA",
   },
 ];

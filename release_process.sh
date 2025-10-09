@@ -28,13 +28,13 @@ git checkout dev
 ## production deployment (after tagging main)
 
 # if fresh folder
-git clone --depth 1 --branch vx.0.x https://github.com/rootdisha/maa-kauvery.git new-deploy-code-folder
+git clone --depth 3 --branch vx.0.x https://github.com/rootdisha/maa-kauvery.git new-deploy-code-folder
 cd new-deploy-code-folder
 vercel --prod # carefully follow instructions
 
 # existing deploy folder : maa-kauvery-LIVE-deployment
 cd existing-deploy-folder
-git fetch --depth 1 origin tag vx.y.z
+git fetch --depth 3 origin tag vx.y.z
 git checkout vx.y.z
 #?? rm -rf .vercel # use this folder for same deployment project don't rm
 vercel  # Preview deploy
