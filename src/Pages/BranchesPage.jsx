@@ -1,16 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, MapPin } from 'lucide-react';
-import { navBarHeight, branchDetails } from '../utils/constants';
-
-// Import your images here
-// import radialImg from '../Images/building-chennai-radial.png';
-// import vadapalaniImg from '../Images/building-chennai-vadapalani.png';
-// import hosurImg from '../Images/building-hosur.jpg';
-// import trichyImg from '../Images/building-trichy.png';
-// import salemImg from '../Images/building-salem.jpg';
-
-
+import { ExternalLink, MapPin, Phone } from 'lucide-react';
+import { navBarHeight, branchDetails, maakauveryPhone } from '../utils/constants';
 
 export default function BranchesPage() {
   return (
@@ -52,16 +43,25 @@ export default function BranchesPage() {
                       {branch.name}
                     </h3>
                     <p className="text-gray-600">{branch.address}</p>
-                    <p className="text-gray-600">{branch.phone}</p>
                   </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+        <div className="mt-12 sm:mt-16 text-center">
+          <div className="inline-block bg-white rounded-2xl shadow-lg px-6 sm:px-8 py-5 sm:py-6">
+            <p className="text-sm sm:text-base text-gray-600 mb-2">Call Us For an Appointment</p>
+            <a 
+              href={`tel:${maakauveryPhone}`}
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#B83A63] hover:text-[#9d2f52] transition-colors duration-300 flex items-center justify-center gap-2"
+            >
+              <Phone className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
+              {maakauveryPhone}
+            </a>
+          </div>
+        </div>
       </section>
-
-  
     </div>
   );
 }
