@@ -24,7 +24,7 @@ export const maakauveryEmails = [
 
 export const navBarHeight = "pt-[170px]"
 
-export const branchImages = [
+export const branchDetails = [
   {
     name: "Chennai - Radial Road",
     img: radialImg,

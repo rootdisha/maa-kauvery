@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, MapPin } from 'lucide-react';
-import { navBarHeight, branchImages } from '../utils/constants';
+import { navBarHeight, branchDetails } from '../utils/constants';
 
 // Import your images here
 // import radialImg from '../Images/building-chennai-radial.png';
@@ -33,7 +33,7 @@ export default function BranchesPage() {
       {/* Branches Grid */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {branchImages.map((branch, index) => (
+          {branchDetails.map((branch, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}

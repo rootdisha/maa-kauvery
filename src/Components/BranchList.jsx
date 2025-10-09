@@ -6,10 +6,10 @@ import { getLocations } from '../utils/doctorsData';
 import { MapPin, ChevronDown } from 'lucide-react';
 // import heroBackgroundVertical from '../Images/charlesdeluvio-nENtqUAiNm8-unsplash.jpg';
 import heroBackgroundVertical from '../Images/alex-pasarelu-S8BW-Wx9G8I-unsplash.jpg';
-import { branchImages } from '../utils/constants';
+import { branchDetails } from '../utils/constants';
 
 const getBranchImage = (branchName) => {
-  const branch = branchImages.find(branch => branch.name === branchName);
+  const branch = branchDetails.find(branch => branch.name === branchName);
   console.log(branchName,  " ", branch ? branch.img : null );
   return branch ? branch.img : null;
 };
