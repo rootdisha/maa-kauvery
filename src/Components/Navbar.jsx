@@ -92,11 +92,9 @@ export default function Navbar({ onContactClick }) {
             bg-white/50
             px-5 py-3 rounded-full  hover:shadow-md transition
              ">
-            <FaPhoneAlt className="text-lg text-pink-700 hover:text-white" />
-            <span className="font-extrabold text-pink-700 hover:text-white">{CONTACT_NUMBER}</span>
-            
-            <br/>
-            <span className="font-bold text-pink-700 hover:text-white"> For FREE Counselling.</span>
+            <FaPhoneAlt className="text-lg" />
+            <span className="font-extrabold">
+              {CONTACT_NUMBER} For FREE Counselling</span>
           </a>
 
         </div>

@@ -37,7 +37,9 @@ const AllRouters = () => {
           transition-all duration-300 
           animate-pulse
           cursor-pointer
-          group"
+          group
+          drop-shadow-[0_0_20px_rgba(184,58,99,0.8)]
+          hover:drop-shadow-[0_0_30px_rgba(251,191,36,1.0)]"
         aria-label="Book an appointment"
       >
         <MaaKAuveryHeartIcon 
