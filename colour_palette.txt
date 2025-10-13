@@ -3,8 +3,8 @@ pink-100        // instead of white or gray
 [#9781bc]     // primary colour of the website
 hover:bg-[#876dad] // for hover accents
 [#70308A]     // primary dark colour
-[#B83A63]     // Maa Kauvery CTA colour. representing MK of sorts
-[#D2A855]     // in colour gradients
+[#B83A63]     // Accent Maa Kauvery CTA colour. representing MK of sorts
+[#D2A855]     // Accent 
 
 // following gradient represents transforming client's life via maa kauvery
 // colours from logo
