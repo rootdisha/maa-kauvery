@@ -31,6 +31,7 @@ export default function Navbar({ onContactClick }) {
         { 
           label: "ART Services", 
           submenu: [
+            {label: "Controlled Ovarian Stimulation (COS)", href: "/fertility/controlled-ovarian-stimulation"},
             {label: "In Vitro Fertilization (IVF)", href: "/fertility/art-services#ivf"},
             {label: "Intracytoplasmic Sperm Injection (ICSI)", href: "/fertility/art-services#icsi"},
             {label: "Intrauterine Insemination (IUI)", href: "/fertility/art-services#iui"},
@@ -63,7 +64,17 @@ export default function Navbar({ onContactClick }) {
             {label: "Counselling", href: "/fertility/additional-treatments#counselling-support"},
           ]          
         },
-        
+        { 
+          label: "Surgical Procedures",
+          submenu: [
+            { label: "Overview", href: "/fertility/surgical-procedures" },
+            { label: "Laparoscopic", href: "/fertility/laparoscopic-procedures" },
+            { label: "Rejuvenative Therapies", href: "/fertility/rejuvenative-therapies" },
+            { label: "ART Procedures", href: "/fertility/art-procedures" },
+            { label: "Obstetric", href: "/fertility/obstetric-procedures" }
+          ]
+        },
+
       ],
     },
     // { label: "Contact", onClick: true},

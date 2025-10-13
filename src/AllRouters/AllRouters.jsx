@@ -18,6 +18,12 @@ import WIPPage from '../Pages/WIPPage'
 import Stories from '../Pages/Stories'
 import MaaKAuveryHeartIcon from '../Components/MaaKauveryHeartIcon'
 import IVFCompleteGuide from '../Pages/FertilityServices/IVFCompleteGuide'
+import SurgicalProceduresHub from '../Pages/FertilityServices/SurgicalProceduresHub'
+import LaparoscopicProcedures from '../Pages/FertilityServices/LaparoscopicProcedures'
+import RejuvenativeTherapies from '../Pages/FertilityServices/RejuvenativeTherapies'
+import ObstetricProcedures from '../Pages/FertilityServices/ObstetricProcedures'
+import ARTProceduresDetailed from '../Pages/FertilityServices/ARTProceduresDetailed'
+import ControlledOvarianStimulation from '../Pages/FertilityServices/ControlledOvarianStimulation'
 
 const AllRouters = () => {
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
@@ -73,6 +79,13 @@ const AllRouters = () => {
         <Route path='/wip' element={<WIPPage />} /> 
         <Route path='/stories' element={<Stories />} /> 
         <Route path='/fertility/ivf-complete-guide' element={<IVFCompleteGuide />} /> 
+        <Route path='/fertility/controlled-ovarian-stimulation' element={<ControlledOvarianStimulation />} />
+        
+        <Route path='/fertility/surgical-procedures' element={<SurgicalProceduresHub />} />
+        <Route path='/fertility/laparoscopic-procedures' element={<LaparoscopicProcedures />} />
+        <Route path='/fertility/rejuvenative-therapies' element={<RejuvenativeTherapies />} />
+        <Route path='/fertility/art-procedures' element={<ARTProceduresDetailed />} />
+        <Route path='/fertility/obstetric-procedures' element={<ObstetricProcedures />} />
       </Routes>
     </div>
   )
