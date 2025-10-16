@@ -80,7 +80,8 @@ export default function Navbar({ onContactClick }) {
     { label: "Contact", href: "/contact"},
     {
       label: "Fertility Evaluation",
-      href: "fertility-eval"
+      href: "fertility-eval",
+      highlight: true // Special flag for highlighted menu item
     }
 
   ];
@@ -89,196 +90,256 @@ export default function Navbar({ onContactClick }) {
     setMobileDropdown(mobileDropdown === i ? null : i);
 
   return (
-    // <header className="bg-white text-[#9781bc] shadow-md font-[pop]"> // [#70308A]
-    <header className="fixed top-0 left-0 right-0 z-50 
-    bg-white/50
-      backdrop-blur-md text-[#70308A] shadow-md font-[pop]">
-    
-      {/*  Top Bar  */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3 ">
-        <Link to="/">
-        <img src={Logo} alt="Maa Kauvery Fertility" className="w-32 md:w-40 object-contain" />
-        </Link>
+    <>
+      <style>{`
+        @keyframes gentlePulse {
+          0%, 100% {
+            box-shadow: 0 0 0 0 rgba(151, 129, 188, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 8px 2px rgba(151, 129, 188, 0.6);
+          }
+        }
 
-        <div className="hidden md:flex items-center gap-6">
-          <a href={"tel:"+CONTACT_NUMBER.replace(/\s/g, '')} 
-            className="flex items-center gap-2
-            hover:bg-pink-700 hover:text-white hover:border-pink-50 
-            bg-white/50
-            px-5 py-3 rounded-full  hover:shadow-md transition
-             ">
-            <FaPhoneAlt className="text-lg" />
-            <span className="font-extrabold">
-              {CONTACT_NUMBER} For FREE Counselling</span>
-          </a>
+        @keyframes subtleGlow {
+          0%, 100% {
+            background-color: rgba(151, 129, 188, 0.1);
+          }
+          50% {
+            background-color: rgba(151, 129, 188, 0.2);
+          }
+        }
 
+        .highlight-menu-item {
+          animation: gentlePulse 3s ease-in-out infinite;
+          background: linear-gradient(135deg, rgba(151, 129, 188, 0.15), rgba(210, 168, 85, 0.15));
+          border-radius: 8px;
+          padding: 8px 16px;
+          transition: all 0.3s ease;
+        }
+
+        .highlight-menu-item:hover {
+          animation: none;
+          background: linear-gradient(135deg, rgba(151, 129, 188, 0.25), rgba(210, 168, 85, 0.25));
+          transform: translateY(-1px);
+        }
+
+        .highlight-mobile-item {
+          animation: subtleGlow 3s ease-in-out infinite;
+          border-left: 3px solid #9781bc;
+          padding-left: 12px;
+          background: linear-gradient(to right, rgba(151, 129, 188, 0.1), transparent);
+          border-radius: 4px;
+        }
+
+        .highlight-badge {
+          display: inline-block;
+          font-size: 0.65rem;
+          padding: 2px 6px;
+          background: linear-gradient(135deg, #9781bc, #D2A855);
+          color: white;
+          border-radius: 10px;
+          margin-left: 6px;
+          font-weight: 600;
+          animation: gentlePulse 3s ease-in-out infinite;
+        }
+      `}</style>
+
+      <header className="fixed top-0 left-0 right-0 z-50 
+        bg-white/50
+        backdrop-blur-md text-[#70308A] shadow-md font-[pop]">
+      
+        {/*  Top Bar  */}
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3 ">
+          <Link to="/">
+          <img src={Logo} alt="Maa Kauvery Fertility" className="w-32 md:w-40 object-contain" />
+          </Link>
+
+          <div className="hidden md:flex items-center gap-6">
+            <a href={"tel:"+CONTACT_NUMBER.replace(/\s/g, '')} 
+              className="flex items-center gap-2
+              hover:bg-pink-700 hover:text-white hover:border-pink-50 
+              bg-white/50
+              px-5 py-3 rounded-full  hover:shadow-md transition
+              ">
+              <FaPhoneAlt className="text-lg" />
+              <span className="font-extrabold">
+                {CONTACT_NUMBER} For FREE Counselling</span>
+            </a>
+
+          </div>
+
+          <button
+            className="md:hidden text-2xl text-[#9781bc]"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <FiX /> : <FiMenu />}
+          </button>
         </div>
 
-        <button
-          className="md:hidden text-2xl text-[#9781bc]"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <FiX /> : <FiMenu />}
-        </button>
-      </div>
-
-      {/*  Navbar  */}
-      {/* removed border-t border-white/30 */}
-      <nav className="hidden md:block bg-white/50">
-        <ul className="max-w-7xl mx-auto flex gap-8 px-4 md:px-8 py-3 font-medium">
-          {navLinks.map((link, i) => (
-            <li key={i} className="relative group">
-              {/* Top level */}
-              {link.onClick ? (
-                // For Contact - trigger modal
-                // removed  hoover:bg-[#f3eefc]/30 border-1 rounded-md  px-4 py-2
-                <button
-                  type="button"
-                  onClick={onContactClick}
-                  className="hover:text-[#7a63a8]"
-                >
-                  {link.label}
-                </button>
-              ) : link.submenu ? (
-                <button
-                  type="button"
-                  className="flex items-center gap-1 hover:text-[#7a63a8]"
-                >
-                  {link.label}
-                  <FiChevronDown className="transition-transform duration-300 group-hover:rotate-180" />
-                </button>
-              ) : (
-                <a href={link.href} className="hover:text-[#7a63a8]">
-                  {link.label}
-                </a>
-              )}
-
-              {/* ---- First-level dropdown ---- */}
-              {link.submenu && (
-                <ul
-                // removed
-                  className="
-                    absolute left-0 mt-2 w-48  bg-gray-50 shadow-lg z-10 rounded-md 
-                    opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                    transition-all duration-300 ease-out transform -translate-y-2 group-hover:translate-y-0
-                  "
-                >
-                  {link.submenu.map((sub, j) => (
-                    <li key={j} className="relative group/sub">
-                      {sub.submenu ? (
-                        <>
-                          <button
-                            type="button"
-                            className="w-full text-left px-4 py-2 flex justify-between hover:bg-[#f3eefc]"
-                          >
-                            {sub.label} <FiChevronDown />
-                          </button>
-                          {/* ---- Second-level dropdown ---- */}
-                          <ul
-                          // removed
-                            className="
-                              absolute left-full top-0 mt-0 w-48 bg-gray-50 shadow-lg rounded-md 
-                              opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible
-                              transition-all duration-300 ease-out transform -translate-x-2 group-hover/sub:translate-x-0
-                            "
-                          >
-                            {sub.submenu.map((deep, k) => (
-                              <li key={k}>
-                                <a
-                                  href={deep.href}
-                                  className="block px-4 py-2 hover:bg-[#f3eefc]"
-                                >
-                                  {deep.label}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      ) : (
-                        <a
-                          href={sub.href}
-                          className="block px-4 py-2 hover:bg-[#f3eefc]"
-                        >
-                          {sub.label}
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      {/* ---------- Mobile Menu with Click ---------- */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-[#9781bc]/20 px-4 py-4 space-y-2">
-          {navLinks.map((link, i) => (
-            <div key={i}>
-              {link.onClick ? (
-                // Mobile Contact button
-                <button
-                  className="block py-2 font-medium hover:text-[#7a63a8] w-full text-left"
-                  onClick={() => {
-                    onContactClick();
-                    setMenuOpen(false);
-                  }}
-                >
-                  {link.label}
-                </button>
-              ) :
-              
-              link.submenu ? (
-                <>
+        {/*  Navbar  */}
+        <nav className="hidden md:block bg-white/50">
+          <ul className="max-w-7xl mx-auto flex gap-8 px-4 md:px-8 py-3 font-medium">
+            {navLinks.map((link, i) => (
+              <li key={i} className="relative group">
+                {/* Top level */}
+                {link.onClick ? (
                   <button
-                    className="flex justify-between w-full py-2 font-medium text-left hover:text-[#7a63a8]"
-                    onClick={() => toggleMobileDropdown(i)}
+                    type="button"
+                    onClick={onContactClick}
+                    className="hover:text-[#7a63a8]"
                   >
                     {link.label}
-                    <FiChevronDown
-                      className={`transition-transform duration-300 ${
-                        mobileDropdown === i ? "rotate-180" : ""
-                      }`}
-                    />
                   </button>
-                  <div
-                    className={`
-                      overflow-hidden transition-all duration-300 ease-in-out
-                      ${mobileDropdown === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
-                      pl-4 space-y-1
-                    `}
+                ) : link.submenu ? (
+                  <button
+                    type="button"
+                    className="flex items-center gap-1 hover:text-[#7a63a8]"
                   >
-                    {link.submenu.map((sub, j) =>
-                      sub.submenu ? (
-                        <details key={j} className="pl-2">
-                          <summary className="cursor-pointer py-1">{sub.label}</summary>
-                          <div className="pl-4 space-y-1">
-                            {sub.submenu.map((deep, k) => (
-                              <a key={k} href={deep.href} className="block py-1 hover:text-[#7a63a8]">
-                                {deep.label}
-                              </a>
-                            ))}
-                          </div>
-                        </details>
-                      ) : (
-                        <a key={j} href={sub.href} className="block py-1 hover:text-[#7a63a8]">
-                          {sub.label}
-                        </a>
-                      )
-                    )}
-                  </div>
-                </>
-              ) : (
-                <a href={link.href} className="block py-2 font-medium hover:text-[#7a63a8]">
-                  {link.label}
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </header>
+                    {link.label}
+                    <FiChevronDown className="transition-transform duration-300 group-hover:rotate-180" />
+                  </button>
+                ) : (
+                  <a 
+                    href={link.href} 
+                    className={`hover:text-[#7a63a8] ${link.highlight ? 'highlight-menu-item' : ''}`}
+                  >
+                    {link.label}
+                    {link.highlight && <span className="highlight-badge">NEW</span>}
+                  </a>
+                )}
+
+                {/* ---- First-level dropdown ---- */}
+                {link.submenu && (
+                  <ul
+                    className="
+                      absolute left-0 mt-2 w-48  bg-gray-50 shadow-lg z-10 rounded-md 
+                      opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                      transition-all duration-300 ease-out transform -translate-y-2 group-hover:translate-y-0
+                    "
+                  >
+                    {link.submenu.map((sub, j) => (
+                      <li key={j} className="relative group/sub">
+                        {sub.submenu ? (
+                          <>
+                            <button
+                              type="button"
+                              className="w-full text-left px-4 py-2 flex justify-between hover:bg-[#f3eefc]"
+                            >
+                              {sub.label} <FiChevronDown />
+                            </button>
+                            {/* ---- Second-level dropdown ---- */}
+                            <ul
+                              className="
+                                absolute left-full top-0 mt-0 w-48 bg-gray-50 shadow-lg rounded-md 
+                                opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible
+                                transition-all duration-300 ease-out transform -translate-x-2 group-hover/sub:translate-x-0
+                              "
+                            >
+                              {sub.submenu.map((deep, k) => (
+                                <li key={k}>
+                                  <a
+                                    href={deep.href}
+                                    className="block px-4 py-2 hover:bg-[#f3eefc]"
+                                  >
+                                    {deep.label}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </>
+                        ) : (
+                          <a
+                            href={sub.href}
+                            className="block px-4 py-2 hover:bg-[#f3eefc]"
+                          >
+                            {sub.label}
+                          </a>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* ---------- Mobile Menu with Click ---------- */}
+        {menuOpen && (
+          <div className="md:hidden border-t border-[#9781bc]/20 px-4 py-4 space-y-2">
+            {navLinks.map((link, i) => (
+              <div key={i}>
+                {link.onClick ? (
+                  // Mobile Contact button
+                  <button
+                    className="block py-2 font-medium hover:text-[#7a63a8] w-full text-left"
+                    onClick={() => {
+                      onContactClick();
+                      setMenuOpen(false);
+                    }}
+                  >
+                    {link.label}
+                  </button>
+                ) :
+                
+                link.submenu ? (
+                  <>
+                    <button
+                      className="flex justify-between w-full py-2 font-medium text-left hover:text-[#7a63a8]"
+                      onClick={() => toggleMobileDropdown(i)}
+                    >
+                      {link.label}
+                      <FiChevronDown
+                        className={`transition-transform duration-300 ${
+                          mobileDropdown === i ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`
+                        overflow-hidden transition-all duration-300 ease-in-out
+                        ${mobileDropdown === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+                        pl-4 space-y-1
+                      `}
+                    >
+                      {link.submenu.map((sub, j) =>
+                        sub.submenu ? (
+                          <details key={j} className="pl-2">
+                            <summary className="cursor-pointer py-1">{sub.label}</summary>
+                            <div className="pl-4 space-y-1">
+                              {sub.submenu.map((deep, k) => (
+                                <a key={k} href={deep.href} className="block py-1 hover:text-[#7a63a8]">
+                                  {deep.label}
+                                </a>
+                              ))}
+                            </div>
+                          </details>
+                        ) : (
+                          <a key={j} href={sub.href} className="block py-1 hover:text-[#7a63a8]">
+                            {sub.label}
+                          </a>
+                        )
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <a 
+                    href={link.href} 
+                    className={`block py-2 font-medium hover:text-[#7a63a8] ${link.highlight ? 'highlight-mobile-item' : ''}`}
+                  >
+                    <span className="flex items-center justify-between">
+                      {link.label}
+                      {link.highlight && <span className="highlight-badge">NEW</span>}
+                    </span>
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </header>
+    </>
   );
 }
