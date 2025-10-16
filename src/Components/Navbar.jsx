@@ -74,11 +74,15 @@ export default function Navbar({ onContactClick }) {
             { label: "Obstetric", href: "/fertility/obstetric-procedures" }
           ]
         },
-
       ],
     },
     // { label: "Contact", onClick: true},
     { label: "Contact", href: "/contact"},
+    {
+      label: "Fertility Evaluation",
+      href: "fertility-eval"
+    }
+
   ];
 
   const toggleMobileDropdown = (i) =>

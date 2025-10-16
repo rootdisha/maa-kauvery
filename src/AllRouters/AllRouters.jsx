@@ -24,6 +24,7 @@ import RejuvenativeTherapies from '../Pages/FertilityServices/RejuvenativeTherap
 import ObstetricProcedures from '../Pages/FertilityServices/ObstetricProcedures'
 import ARTProceduresDetailed from '../Pages/FertilityServices/ARTProceduresDetailed'
 import ControlledOvarianStimulation from '../Pages/FertilityServices/ControlledOvarianStimulation'
+import PatientQuestionnaire from '../Components/PatientQuestionnaire'
 
 const AllRouters = () => {
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
@@ -68,6 +69,7 @@ const AllRouters = () => {
         <Route path="/branch/:id" element={<DoctorsPage />} />
         <Route path='/Overview' element={<AboutOverview />} />
         <Route path='/LeadershipSection' element={<LeadershipSection />} />
+        <Route path='/fertility-eval' element={<PatientQuestionnaire />} />
         <Route path='/fertility/about' element={<AboutFertility />} />
         <Route path='/fertility/art-services' element={<ARTServices />} />
         <Route path='/fertility/advanced-procedures' element={<AdvancedProcedures />} />
