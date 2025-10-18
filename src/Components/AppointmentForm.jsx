@@ -15,6 +15,7 @@ export default function SimpleAppointmentForm({ isOpen, onClose }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
+  const [phoneError, setPhoneError] = useState("");
 
   useEffect(() => {
     const loadLocations = async () => {
@@ -27,6 +28,31 @@ export default function SimpleAppointmentForm({ isOpen, onClose }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    
+    // Validate phone number for Indian format
+    if (name === 'phone') {
+      validatePhoneNumber(value);
+    }
+  };
+
+  const validatePhoneNumber = (phone) => {
+    // Remove all non-digit characters
+    const cleanPhone = phone.replace(/\D/g, '');
+    
+    // Check if it's a valid Indian mobile number (10 digits starting with 6,7,8,9)
+    const indianMobileRegex = /^[6-9]\d{9}$/;
+    
+    if (cleanPhone.length === 0) {
+      setPhoneError("");
+    } else if (cleanPhone.length < 10) {
+      setPhoneError("Phone number must be 10 digits");
+    } else if (cleanPhone.length > 10) {
+      setPhoneError("Phone number must be exactly 10 digits");
+    } else if (!indianMobileRegex.test(cleanPhone)) {
+      setPhoneError("Please enter a valid Indian mobile number (starting with 6,7,8,9)");
+    } else {
+      setPhoneError("");
+    }
   };
 
   const submitToWeb3Forms = async (accessKey, toEmail) => {
@@ -177,9 +203,15 @@ export default function SimpleAppointmentForm({ isOpen, onClose }) {
               onChange={handleChange}
               required
               disabled={isSubmitting}
-              placeholder="+91 98765 43210"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition disabled:opacity-50"
+              placeholder="98765 43210"
+              maxLength="15"
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition disabled:opacity-50 ${
+                phoneError ? 'border-red-500' : 'border-gray-300'
+              }`}
             />
+            {phoneError && (
+              <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+            )}
           </div>
 
           <div>
@@ -220,7 +252,7 @@ export default function SimpleAppointmentForm({ isOpen, onClose }) {
 
           <button
             type="submit"
-            disabled={isSubmitting || !formData.name || !formData.email || !formData.phone || !formData.location}
+            disabled={isSubmitting || !formData.name || !formData.email || !formData.phone || !formData.location || phoneError}
             className="w-full bg-[#B83A63] text-white py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (

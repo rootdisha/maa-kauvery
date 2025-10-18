@@ -3,6 +3,15 @@ import { ChevronRight, ChevronLeft, Check, AlertCircle } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { navBarHeight } from '../utils/constants';
 
+// Form field limits
+const FIELD_LIMITS = {
+  AGE: { min: 18, max: 70 },
+  HEIGHT: { min: 120, max: 200 },
+  WEIGHT: { min: 35, max: 200 },
+  SLEEP: { min: 1, max: 10 },
+  MARITAL_DURATION: { min: 0, max: 40 }
+};
+
 // Security utility functions
 const SecurityUtils = {
   sanitizeInput: (input) => {
@@ -19,8 +28,13 @@ const SecurityUtils = {
   },
 
   validatePhone: (phone) => {
-    const phoneRegex = /^[\d\s\-\+\(\)]{10,15}$/;
-    return phoneRegex.test(phone);
+    // Remove all non-digit characters for validation
+    const cleanPhone = phone.replace(/\D/g, '');
+    
+    // Check if it's a valid Indian mobile number (10 digits starting with 6,7,8,9)
+    const indianMobileRegex = /^[6-9]\d{9}$/;
+    
+    return cleanPhone.length === 10 && indianMobileRegex.test(cleanPhone);
   },
 
   validateName: (name) => {
@@ -30,7 +44,27 @@ const SecurityUtils = {
 
   validateAge: (age) => {
     const numAge = parseInt(age, 10);
-    return !isNaN(numAge) && numAge >= 18 && numAge <= 120;
+    return !isNaN(numAge) && numAge >= FIELD_LIMITS.AGE.min && numAge <= FIELD_LIMITS.AGE.max;
+  },
+
+  validateHeight: (height) => {
+    const numHeight = parseInt(height, 10);
+    return !isNaN(numHeight) && numHeight >= FIELD_LIMITS.HEIGHT.min && numHeight <= FIELD_LIMITS.HEIGHT.max;
+  },
+
+  validateWeight: (weight) => {
+    const numWeight = parseInt(weight, 10);
+    return !isNaN(numWeight) && numWeight >= FIELD_LIMITS.WEIGHT.min && numWeight <= FIELD_LIMITS.WEIGHT.max;
+  },
+
+  validateSleep: (sleep) => {
+    const numSleep = parseFloat(sleep);
+    return !isNaN(numSleep) && numSleep >= FIELD_LIMITS.SLEEP.min && numSleep <= FIELD_LIMITS.SLEEP.max;
+  },
+
+  validateMaritalDuration: (duration) => {
+    const numDuration = parseFloat(duration);
+    return !isNaN(numDuration) && numDuration >= FIELD_LIMITS.MARITAL_DURATION.min && numDuration <= FIELD_LIMITS.MARITAL_DURATION.max;
   },
 
   containsSQLInjection: (input) => {
@@ -134,9 +168,17 @@ export default function FertilityQuestionnaire() {
     } else if (name === 'email' && sanitizedValue && !SecurityUtils.validateEmail(sanitizedValue)) {
       error = 'Please enter a valid email address';
     } else if (name === 'mobileNumber' && sanitizedValue && !SecurityUtils.validatePhone(sanitizedValue)) {
-      error = 'Please enter a valid phone number';
+      error = 'Please enter a valid 10-digit Indian mobile number (starting with 6,7,8,9)';
     } else if (name === 'age' && sanitizedValue && !SecurityUtils.validateAge(sanitizedValue)) {
-      error = 'Age must be between 18 and 120';
+      error = `Age must be between ${FIELD_LIMITS.AGE.min} and ${FIELD_LIMITS.AGE.max}`;
+    } else if (name === 'height' && sanitizedValue && !SecurityUtils.validateHeight(sanitizedValue)) {
+      error = `Height must be between ${FIELD_LIMITS.HEIGHT.min} and ${FIELD_LIMITS.HEIGHT.max} cm`;
+    } else if (name === 'weight' && sanitizedValue && !SecurityUtils.validateWeight(sanitizedValue)) {
+      error = `Weight must be between ${FIELD_LIMITS.WEIGHT.min} and ${FIELD_LIMITS.WEIGHT.max} kg`;
+    } else if (name === 'sleep' && sanitizedValue && !SecurityUtils.validateSleep(sanitizedValue)) {
+      error = `Sleep must be between ${FIELD_LIMITS.SLEEP.min} and ${FIELD_LIMITS.SLEEP.max} hours`;
+    } else if (name === 'maritalDuration' && sanitizedValue && !SecurityUtils.validateMaritalDuration(sanitizedValue)) {
+      error = `Marital duration must be between ${FIELD_LIMITS.MARITAL_DURATION.min} and ${FIELD_LIMITS.MARITAL_DURATION.max} years`;
     }
 
     if (error) {
@@ -157,7 +199,7 @@ export default function FertilityQuestionnaire() {
 
       if (!formData.mobileNumber) newErrors.mobileNumber = 'Mobile number is required';
       else if (!SecurityUtils.validatePhone(formData.mobileNumber)) {
-        newErrors.mobileNumber = 'Please enter a valid phone number';
+        newErrors.mobileNumber = 'Please enter a valid 10-digit Indian mobile number (starting with 6,7,8,9)';
       }
 
       if (!formData.email) newErrors.email = 'Email is required';
@@ -167,13 +209,23 @@ export default function FertilityQuestionnaire() {
 
       if (!formData.age) newErrors.age = 'Age is required';
       else if (!SecurityUtils.validateAge(formData.age)) {
-        newErrors.age = 'Age must be between 18 and 120';
+        newErrors.age = `Age must be between ${FIELD_LIMITS.AGE.min} and ${FIELD_LIMITS.AGE.max}`;
       }
     } else if (currentPage === 2) {
       if (!formData.height) newErrors.height = 'Height is required';
+      else if (!SecurityUtils.validateHeight(formData.height)) {
+        newErrors.height = `Height must be between ${FIELD_LIMITS.HEIGHT.min} and ${FIELD_LIMITS.HEIGHT.max} cm`;
+      }
+      
       if (!formData.weight) newErrors.weight = 'Weight is required';
+      else if (!SecurityUtils.validateWeight(formData.weight)) {
+        newErrors.weight = `Weight must be between ${FIELD_LIMITS.WEIGHT.min} and ${FIELD_LIMITS.WEIGHT.max} kg`;
+      }
       if (!formData.physicalActivity) newErrors.physicalActivity = 'This field is required';
       if (!formData.sleep) newErrors.sleep = 'Sleep hours is required';
+      else if (!SecurityUtils.validateSleep(formData.sleep)) {
+        newErrors.sleep = `Sleep must be between ${FIELD_LIMITS.SLEEP.min} and ${FIELD_LIMITS.SLEEP.max} hours`;
+      }
       if (!formData.smoking) newErrors.smoking = 'This field is required';
       if (!formData.alcohol) newErrors.alcohol = 'This field is required';
       if (!formData.stress) newErrors.stress = 'This field is required';
@@ -185,6 +237,9 @@ export default function FertilityQuestionnaire() {
       if (!formData.hypertension) newErrors.hypertension = 'This field is required';
       if (!formData.thyroidDisorder) newErrors.thyroidDisorder = 'This field is required';
       if (!formData.maritalDuration) newErrors.maritalDuration = 'Marital duration is required';
+      else if (!SecurityUtils.validateMaritalDuration(formData.maritalDuration)) {
+        newErrors.maritalDuration = `Marital duration must be between ${FIELD_LIMITS.MARITAL_DURATION.min} and ${FIELD_LIMITS.MARITAL_DURATION.max} years`;
+      }
       if (!formData.sexualFrequency) newErrors.sexualFrequency = 'This field is required';
       if (!formData.sexualFunctionDifficulties) newErrors.sexualFunctionDifficulties = 'This field is required';
       if (!formData.gender) newErrors.gender = 'Gender is required';
@@ -389,6 +444,7 @@ export default function FertilityQuestionnaire() {
                       value={formData.mobileNumber}
                       onChange={handleInputChange}
                       maxLength={15}
+                      placeholder="98765 43210"
                       className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#9781bc]/20 outline-none transition ${
                         errors.mobileNumber ? 'border-red-500' : 'border-gray-200 focus:border-[#9781bc]'
                       }`}
@@ -434,8 +490,8 @@ export default function FertilityQuestionnaire() {
                       name="age"
                       value={formData.age}
                       onChange={handleInputChange}
-                      min="18"
-                      max="120"
+                      min={FIELD_LIMITS.AGE.min}
+                      max={FIELD_LIMITS.AGE.max}
                       className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#9781bc]/20 outline-none transition ${
                         errors.age ? 'border-red-500' : 'border-gray-200 focus:border-[#9781bc]'
                       }`}
@@ -469,8 +525,8 @@ export default function FertilityQuestionnaire() {
                       name="height"
                       value={formData.height}
                       onChange={handleInputChange}
-                      min="50"
-                      max="300"
+                      min={FIELD_LIMITS.HEIGHT.min}
+                      max={FIELD_LIMITS.HEIGHT.max}
                       className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#9781bc]/20 outline-none transition ${
                         errors.height ? 'border-red-500' : 'border-gray-200 focus:border-[#9781bc]'
                       }`}
@@ -493,8 +549,8 @@ export default function FertilityQuestionnaire() {
                       name="weight"
                       value={formData.weight}
                       onChange={handleInputChange}
-                      min="20"
-                      max="300"
+                      min={FIELD_LIMITS.WEIGHT.min}
+                      max={FIELD_LIMITS.WEIGHT.max}
                       className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#9781bc]/20 outline-none transition ${
                         errors.weight ? 'border-red-500' : 'border-gray-200 focus:border-[#9781bc]'
                       }`}
@@ -528,8 +584,8 @@ export default function FertilityQuestionnaire() {
                       name="sleep"
                       value={formData.sleep}
                       onChange={handleInputChange}
-                      min="0"
-                      max="24"
+                      min={FIELD_LIMITS.SLEEP.min}
+                      max={FIELD_LIMITS.SLEEP.max}
                       step="0.5"
                       className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#9781bc]/20 outline-none transition ${
                         errors.sleep ? 'border-red-500' : 'border-gray-200 focus:border-[#9781bc]'
@@ -654,8 +710,8 @@ export default function FertilityQuestionnaire() {
                       name="maritalDuration"
                       value={formData.maritalDuration}
                       onChange={handleInputChange}
-                      min="0"
-                      max="50"
+                      min={FIELD_LIMITS.MARITAL_DURATION.min}
+                      max={FIELD_LIMITS.MARITAL_DURATION.max}
                       step="0.1"
                       className={`w-full px-4 py-3 border-2 rounded-xl focus:ring-2 focus:ring-[#9781bc]/20 outline-none transition ${
                         errors.maritalDuration ? 'border-red-500' : 'border-gray-200 focus:border-[#9781bc]'
@@ -706,7 +762,7 @@ export default function FertilityQuestionnaire() {
             {currentPage === 4 && formData.gender === 'Female' && (
               <div className="animate-fadeIn">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-4 border-b-2 border-[#9781bc]">
-                  Page 4 of {getTotalPages()} - Fertility Questionnaire for Female Partner
+                  Page 4 of {getTotalPages()} - Fertility Evaluation and Assessment for Female Partner
                 </h2>
 
                 <div className="space-y-6">
@@ -818,7 +874,7 @@ export default function FertilityQuestionnaire() {
             {currentPage === 4 && formData.gender === 'Male' && (
               <div className="animate-fadeIn">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-4 border-b-2 border-[#9781bc]">
-                  Page 4 of {getTotalPages()} - Fertility Questionnaire for Male Partner
+                  Page 4 of {getTotalPages()} - Fertility Evaluation and Assessment for Male Partner
                 </h2>
 
                 <div className="space-y-6">
@@ -869,7 +925,7 @@ export default function FertilityQuestionnaire() {
                 </div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Thank You!</h2>
                 <p className="text-gray-600 text-lg mb-4">
-                  Your questionnaire has been submitted successfully.
+                  Your health assessment has been submitted successfully.
                 </p>
                 <p className="text-gray-600 mb-4">
                   A member of our clinical team will review your information and contact you within 24-48 hours to schedule your consultation.
