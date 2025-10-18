@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Award, BookOpen, Users, X, Calendar, Phone } from "lucide-react";
 import Papa from "papaparse";
 import { navBarHeight } from "../utils/constants";
+import SimpleAppointmentForm from "../Components/AppointmentForm";
 
 export default function DoctorsPage() {
   const [doctors, setDoctors] = useState([]);
@@ -10,6 +11,19 @@ export default function DoctorsPage() {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isAppointmentFormOpen, setIsAppointmentFormOpen] = useState(false);
+  const [selectedDoctorForAppointment, setSelectedDoctorForAppointment] = useState(null);
+  
+  // Memoize the initial comment and location to prevent re-calculation
+  const initialComment = useMemo(() => {
+    if (!selectedDoctorForAppointment) return "";
+    return `I would like to book an appointment with ${selectedDoctorForAppointment["Doctor name"]} (${selectedDoctorForAppointment.Title}) at ${selectedDoctorForAppointment.Location}.`;
+  }, [selectedDoctorForAppointment]);
+
+  const initialLocation = useMemo(() => {
+    if (!selectedDoctorForAppointment) return "";
+    return selectedDoctorForAppointment.Location || "";
+  }, [selectedDoctorForAppointment]);
 
   useEffect(() => {
     // Load CSV data
@@ -236,7 +250,10 @@ export default function DoctorsPage() {
                           </div>
                         </div>
 
-                        <button className="mt-6 w-full bg-[#9781bc] text-white py-2 rounded-lg font-semibold hover:bg-[#876dad] transition-colors">
+                        <button 
+                          onClick={() => setSelectedDoctor(doctor)}
+                          className="mt-6 w-full bg-[#9781bc] text-white py-2 rounded-lg font-semibold hover:bg-[#876dad] transition-colors"
+                        >
                           View Full Profile
                         </button>
                       </div>
@@ -414,11 +431,20 @@ export default function DoctorsPage() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <button className="flex-1 bg-[#9781bc] text-white 
-                      py-3 rounded-lg font-semibold 
-                      hover:bg-pink-700 hover:text-white hover:border-pink-50 
-                      transition-colors flex items-center justify-center 
-                      gap-2">
+                    <button 
+                      onClick={() => {
+                        // Store the doctor data before closing the modal
+                        const doctorData = selectedDoctor;
+                        setSelectedDoctorForAppointment(doctorData);
+                        setSelectedDoctor(null);
+                        setIsAppointmentFormOpen(true);
+                      }}
+                      className="flex-1 bg-[#9781bc] text-white 
+                        py-3 rounded-lg font-semibold 
+                        hover:bg-pink-700 hover:text-white hover:border-pink-50 
+                        transition-colors flex items-center justify-center 
+                        gap-2"
+                    >
                       <Calendar className="w-5 h-5" />
                       Book Appointment
                     </button>
@@ -438,6 +464,17 @@ export default function DoctorsPage() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Appointment Form Modal */}
+        <SimpleAppointmentForm 
+          isOpen={isAppointmentFormOpen}
+          onClose={() => {
+            setIsAppointmentFormOpen(false);
+            setSelectedDoctorForAppointment(null);
+          }}
+          initComment={initialComment}
+          initLocation={initialLocation}
+        />
       </div>
     </div>
   );

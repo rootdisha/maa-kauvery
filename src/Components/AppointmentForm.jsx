@@ -4,14 +4,14 @@ import { maakauveryEmails } from "../utils/constants"
 import { X, Calendar, Mail, Loader } from "lucide-react";
 import { getLocations } from "../utils/doctorsData";
 
-export default function SimpleAppointmentForm({ isOpen, onClose }) {
+export default function SimpleAppointmentForm({ isOpen, onClose, initComment = "", initLocation = "" }) {
   const [locations, setLocations] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    location: "",
-    comment: ""
+    location: initLocation,
+    comment: initComment
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
@@ -23,6 +23,17 @@ export default function SimpleAppointmentForm({ isOpen, onClose }) {
     };
     loadLocations();
   }, []);
+
+  // Update comment and location when props change
+  useEffect(() => {
+    if (initComment || initLocation) {
+      setFormData(prev => ({ 
+        ...prev, 
+        comment: initComment || prev.comment,
+        location: initLocation || prev.location
+      }));
+    }
+  }, [initComment, initLocation]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
